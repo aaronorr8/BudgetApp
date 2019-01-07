@@ -8,15 +8,35 @@
 
 import UIKit
 import CoreData
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.1865581274, green: 0.2438463569, blue: 0.3193703592, alpha: 1)
+        /*let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.red,
+            NSAttributedStringKey.font: UIFont(name: "Georgia-Bold", size: 24)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs*/
+        
+        UITabBar.appearance().tintColor = #colorLiteral(red: 0.368627451, green: 0.2078431373, blue: 0.6941176471, alpha: 1)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "a820e8976f42e754e404743a7c7d2e99be42b257"
+            $0.clientKey = "3a529f0c39ff2d8336968065113429085f636bd7"
+            $0.server = "http://ec2-18-188-59-167.us-east-2.compute.amazonaws.com/parse"
+        }
+        Parse.initialize(with: configuration)
+        
         return true
     }
 
@@ -43,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    
 
     // MARK: - Core Data stack
 
@@ -88,6 +110,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
 
+}
+
+extension UIApplication {
+    
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
 }
 

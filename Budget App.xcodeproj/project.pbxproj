@@ -7,14 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D00588521700F9C00AB90EC /* WavyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D00588421700F9C00AB90EC /* WavyProgressView.swift */; };
+		0D29F41A20E29841008E4D72 /* BackgroundRelax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D29F41920E2983E008E4D72 /* BackgroundRelax.png */; };
+		0D33F7CB20F7F32700DA5164 /* AddSpendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D33F7CA20F7F32700DA5164 /* AddSpendViewController.swift */; };
+		0D492DD3213F4C9A009F446E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D492DD2213F4C9A009F446E /* SettingsViewController.swift */; };
+		0D4FF7BE21222FBD006D94EA /* BudgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FF7BD21222FBD006D94EA /* BudgetCollectionViewCell.swift */; };
+		0D4FF7C02122338E006D94EA /* transaction.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D4FF7BF2122338D006D94EA /* transaction.png */; };
+		0D596A7321408E9900B6AFF1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D596A7221408E9900B6AFF1 /* HistoryViewController.swift */; };
+		0D596A7721408F6800B6AFF1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D596A7621408F6800B6AFF1 /* HistoryTableViewCell.swift */; };
+		0D67071520F0169C00CD0B87 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D67071420F0169C00CD0B87 /* Button.png */; };
+		0D71E7AA20E444BB0056867A /* BillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D71E7A920E444BB0056867A /* BillsViewController.swift */; };
+		0D71E7AC20E444D80056867A /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D71E7AB20E444D80056867A /* BillsTableViewCell.swift */; };
+		0D74DC9120E197BB00BBB1C7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D74DC9020E197BB00BBB1C7 /* SplashScreenViewController.swift */; };
+		0D80C41B215ECAA3008658E0 /* Shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D80C41A215ECAA3008658E0 /* Shadow.png */; };
+		0D80C41E21611551008658E0 /* UiView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D80C41D21611551008658E0 /* UiView+Extensions.swift */; };
+		0D80C42021625189008658E0 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D80C41F21625189008658E0 /* background.jpg */; };
+		0D83E9E62163ED7C00E2CF4C /* BudgetCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83E9E52163ED7C00E2CF4C /* BudgetCollectionReusableView.swift */; };
+		0D83E9EC2164671400E2CF4C /* BudgetCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D83E9EA2164671400E2CF4C /* BudgetCollectionView.xib */; };
+		0D866EF82147187200A40C31 /* SIMPLIFICA Typeface.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D866EF72147167400A40C31 /* SIMPLIFICA Typeface.ttf */; };
+		0D8D8880216CE2FD00ECF30E /* FooterBudgetCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D887F216CE2FD00ECF30E /* FooterBudgetCollectionView.swift */; };
+		0DA65E7A21715A770068978A /* Bills.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA65E7921715A770068978A /* Bills.png */; };
+		0DA9FB3720E1A40900E7AE9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB055FA20D9B70500B997D0 /* Main.storyboard */; };
 		0DB055F720D9B70500B997D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB055F620D9B70500B997D0 /* AppDelegate.swift */; };
 		0DB055F920D9B70500B997D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB055F820D9B70500B997D0 /* ViewController.swift */; };
-		0DB055FC20D9B70500B997D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB055FA20D9B70500B997D0 /* Main.storyboard */; };
 		0DB055FF20D9B70500B997D0 /* Budget_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DB055FD20D9B70500B997D0 /* Budget_App.xcdatamodeld */; };
 		0DB0560120D9B70500B997D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DB0560020D9B70500B997D0 /* Assets.xcassets */; };
 		0DB0560420D9B70500B997D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB0560220D9B70500B997D0 /* LaunchScreen.storyboard */; };
 		0DB0560F20D9B70500B997D0 /* Budget_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB0560E20D9B70500B997D0 /* Budget_AppTests.swift */; };
 		0DB0561A20D9B70500B997D0 /* Budget_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB0561920D9B70500B997D0 /* Budget_AppUITests.swift */; };
+		0DBDEF9020DB053900BE83CA /* AddBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBDEF8F20DB053900BE83CA /* AddBillViewController.swift */; };
+		0DBF17F321472DA700E7BDA8 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBF17F221472DA700E7BDA8 /* menu.png */; };
+		0DC92EB62154694C008B909C /* beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DC92EB52154694C008B909C /* beach.jpg */; };
+		0DDD617C2166573800C23A26 /* ProgressAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD617B2166573800C23A26 /* ProgressAnimationViewController.swift */; };
+		0DDD61802166CE3200C23A26 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDD617F2166CE3200C23A26 /* CircularProgressView.swift */; };
+		0DDF660A20F53295000E4EA7 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF660920F53295000E4EA7 /* TabViewController.swift */; };
+		0DDF660C20F535C0000E4EA7 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF660B20F535C0000E4EA7 /* OverviewViewController.swift */; };
+		0DDF660E20F53A97000E4EA7 /* BudgetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF660D20F53A97000E4EA7 /* BudgetsViewController.swift */; };
+		0DDF661220F56B58000E4EA7 /* AddBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF661120F56B58000E4EA7 /* AddBudgetViewController.swift */; };
+		0DEE807D219EFCA50009CD8B /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE807C219EFCA50009CD8B /* RemindersViewController.swift */; };
+		0DEE807F219EFD370009CD8B /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE807E219EFD370009CD8B /* RemindersTableViewCell.swift */; };
+		0DEE8081219EFF590009CD8B /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE8080219EFF590009CD8B /* AddReminderViewController.swift */; };
+		0DF5302B211A59C2003746DE /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF5302A211A59C2003746DE /* shuffle.png */; };
+		37A67FEFEB3BF4723A300E0D /* Pods_Budget_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA093DB4FF9CE27F94AD0FE /* Pods_Budget_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +69,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052891895380C5A494A98EC6 /* Pods-Budget App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget App/Pods-Budget App.release.xcconfig"; sourceTree = "<group>"; };
+		0D00588421700F9C00AB90EC /* WavyProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyProgressView.swift; sourceTree = "<group>"; };
+		0D29F41920E2983E008E4D72 /* BackgroundRelax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundRelax.png; sourceTree = "<group>"; };
+		0D33F7CA20F7F32700DA5164 /* AddSpendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewController.swift; sourceTree = "<group>"; };
+		0D492DD2213F4C9A009F446E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0D4FF7BD21222FBD006D94EA /* BudgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCollectionViewCell.swift; sourceTree = "<group>"; };
+		0D4FF7BF2122338D006D94EA /* transaction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transaction.png; sourceTree = "<group>"; };
+		0D596A7221408E9900B6AFF1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		0D596A7621408F6800B6AFF1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		0D67071420F0169C00CD0B87 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
+		0D71E7A920E444BB0056867A /* BillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsViewController.swift; sourceTree = "<group>"; };
+		0D71E7AB20E444D80056867A /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
+		0D74DC9020E197BB00BBB1C7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		0D80C410215EC122008658E0 /* Signika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Regular.ttf"; sourceTree = "<group>"; };
+		0D80C411215EC123008658E0 /* Signika-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Bold.ttf"; sourceTree = "<group>"; };
+		0D80C412215EC123008658E0 /* Signika-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Light.ttf"; sourceTree = "<group>"; };
+		0D80C413215EC123008658E0 /* Signika-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Signika-Semibold.ttf"; sourceTree = "<group>"; };
+		0D80C41A215ECAA3008658E0 /* Shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shadow.png; sourceTree = "<group>"; };
+		0D80C41D21611551008658E0 /* UiView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extensions.swift"; sourceTree = "<group>"; };
+		0D80C41F21625189008658E0 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		0D83E9E52163ED7C00E2CF4C /* BudgetCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCollectionReusableView.swift; sourceTree = "<group>"; };
+		0D83E9EA2164671400E2CF4C /* BudgetCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetCollectionView.xib; sourceTree = "<group>"; };
+		0D866EF72147167400A40C31 /* SIMPLIFICA Typeface.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SIMPLIFICA Typeface.ttf"; sourceTree = "<group>"; };
+		0D8D887F216CE2FD00ECF30E /* FooterBudgetCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBudgetCollectionView.swift; sourceTree = "<group>"; };
+		0DA65E7921715A770068978A /* Bills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bills.png; sourceTree = "<group>"; };
 		0DB055F320D9B70500B997D0 /* Budget App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB055F620D9B70500B997D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DB055F820D9B70500B997D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +108,21 @@
 		0DB0561520D9B70500B997D0 /* Budget AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Budget AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB0561920D9B70500B997D0 /* Budget_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget_AppUITests.swift; sourceTree = "<group>"; };
 		0DB0561B20D9B70500B997D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DBDEF8F20DB053900BE83CA /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
+		0DBF17F221472DA700E7BDA8 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		0DC92EB52154694C008B909C /* beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beach.jpg; sourceTree = "<group>"; };
+		0DDD617B2166573800C23A26 /* ProgressAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAnimationViewController.swift; sourceTree = "<group>"; };
+		0DDD617F2166CE3200C23A26 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		0DDF660920F53295000E4EA7 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		0DDF660B20F535C0000E4EA7 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
+		0DDF660D20F53A97000E4EA7 /* BudgetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsViewController.swift; sourceTree = "<group>"; };
+		0DDF661120F56B58000E4EA7 /* AddBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetViewController.swift; sourceTree = "<group>"; };
+		0DEE807C219EFCA50009CD8B /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		0DEE807E219EFD370009CD8B /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
+		0DEE8080219EFF590009CD8B /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		0DF5302A211A59C2003746DE /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle.png; sourceTree = "<group>"; };
+		1FA093DB4FF9CE27F94AD0FE /* Pods_Budget_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CD32D1BB02FE00DFBBE229F /* Pods-Budget App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget App/Pods-Budget App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A67FEFEB3BF4723A300E0D /* Pods_Budget_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +151,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D3F34F0212F5203008028AB /* Spending Budgets */ = {
+			isa = PBXGroup;
+			children = (
+				0DDF660D20F53A97000E4EA7 /* BudgetsViewController.swift */,
+				0D4FF7BD21222FBD006D94EA /* BudgetCollectionViewCell.swift */,
+				0D83E9E52163ED7C00E2CF4C /* BudgetCollectionReusableView.swift */,
+				0D00588421700F9C00AB90EC /* WavyProgressView.swift */,
+				0DDD617F2166CE3200C23A26 /* CircularProgressView.swift */,
+				0D8D887F216CE2FD00ECF30E /* FooterBudgetCollectionView.swift */,
+				0D33F7CA20F7F32700DA5164 /* AddSpendViewController.swift */,
+				0DDF661120F56B58000E4EA7 /* AddBudgetViewController.swift */,
+				0D596A7221408E9900B6AFF1 /* HistoryViewController.swift */,
+				0D596A7621408F6800B6AFF1 /* HistoryTableViewCell.swift */,
+				0D83E9EA2164671400E2CF4C /* BudgetCollectionView.xib */,
+			);
+			path = "Spending Budgets";
+			sourceTree = "<group>";
+		};
+		0D3F34F1212F5242008028AB /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				0DEE807C219EFCA50009CD8B /* RemindersViewController.swift */,
+				0DEE8080219EFF590009CD8B /* AddReminderViewController.swift */,
+				0DEE807E219EFD370009CD8B /* RemindersTableViewCell.swift */,
+				0DBDEF8F20DB053900BE83CA /* AddBillViewController.swift */,
+				0D71E7AB20E444D80056867A /* BillsTableViewCell.swift */,
+				0D71E7A920E444BB0056867A /* BillsViewController.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		0D3F34F2212F5264008028AB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0D74DC9020E197BB00BBB1C7 /* SplashScreenViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		0D3F34F3212F5312008028AB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0DB055F820D9B70500B997D0 /* ViewController.swift */,
+				0DB055FA20D9B70500B997D0 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0D492DD1213F4C6E009F446E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0D492DD2213F4C9A009F446E /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		0D80C41C2161151D008658E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0D80C41D21611551008658E0 /* UiView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D866EF62147160600A40C31 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0D866EF72147167400A40C31 /* SIMPLIFICA Typeface.ttf */,
+				0D80C411215EC123008658E0 /* Signika-Bold.ttf */,
+				0D80C412215EC123008658E0 /* Signika-Light.ttf */,
+				0D80C410215EC122008658E0 /* Signika-Regular.ttf */,
+				0D80C413215EC123008658E0 /* Signika-Semibold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0DB055EA20D9B70500B997D0 = {
 			isa = PBXGroup;
 			children = (
 				0DB055F520D9B70500B997D0 /* Budget App */,
+				0D866EF62147160600A40C31 /* Fonts */,
+				0DBF17F121472D9100E7BDA8 /* Images */,
 				0DB0560D20D9B70500B997D0 /* Budget AppTests */,
 				0DB0561820D9B70500B997D0 /* Budget AppUITests */,
 				0DB055F420D9B70500B997D0 /* Products */,
+				0D29F41920E2983E008E4D72 /* BackgroundRelax.png */,
+				0D67071420F0169C00CD0B87 /* Button.png */,
+				0DF5302A211A59C2003746DE /* shuffle.png */,
+				0D4FF7BF2122338D006D94EA /* transaction.png */,
+				C27FC6015B4458691C566405 /* Pods */,
+				DA7B733C693FFD2F08C73792 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +258,15 @@
 		0DB055F520D9B70500B997D0 /* Budget App */ = {
 			isa = PBXGroup;
 			children = (
+				0DDD617B2166573800C23A26 /* ProgressAnimationViewController.swift */,
+				0DF53027211A4D3F003746DE /* SubClasses */,
 				0DB055F620D9B70500B997D0 /* AppDelegate.swift */,
-				0DB055F820D9B70500B997D0 /* ViewController.swift */,
-				0DB055FA20D9B70500B997D0 /* Main.storyboard */,
-				0DB0560020D9B70500B997D0 /* Assets.xcassets */,
+				0DDF660920F53295000E4EA7 /* TabViewController.swift */,
+				0DDF660B20F535C0000E4EA7 /* OverviewViewController.swift */,
 				0DB0560220D9B70500B997D0 /* LaunchScreen.storyboard */,
 				0DB0560520D9B70500B997D0 /* Info.plist */,
 				0DB055FD20D9B70500B997D0 /* Budget_App.xcdatamodeld */,
+				0DB0560020D9B70500B997D0 /* Assets.xcassets */,
 			);
 			path = "Budget App";
 			sourceTree = "<group>";
@@ -128,6 +289,48 @@
 			path = "Budget AppUITests";
 			sourceTree = "<group>";
 		};
+		0DBF17F121472D9100E7BDA8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0DA65E7921715A770068978A /* Bills.png */,
+				0D80C41F21625189008658E0 /* background.jpg */,
+				0D80C41A215ECAA3008658E0 /* Shadow.png */,
+				0DBF17F221472DA700E7BDA8 /* menu.png */,
+				0DC92EB52154694C008B909C /* beach.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0DF53027211A4D3F003746DE /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				0D80C41C2161151D008658E0 /* Extensions */,
+				0D3F34F3212F5312008028AB /* Main */,
+				0D492DD1213F4C6E009F446E /* Settings */,
+				0D3F34F2212F5264008028AB /* Onboarding */,
+				0D3F34F0212F5203008028AB /* Spending Budgets */,
+				0D3F34F1212F5242008028AB /* Reminders */,
+			);
+			path = SubClasses;
+			sourceTree = "<group>";
+		};
+		C27FC6015B4458691C566405 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CD32D1BB02FE00DFBBE229F /* Pods-Budget App.debug.xcconfig */,
+				052891895380C5A494A98EC6 /* Pods-Budget App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA7B733C693FFD2F08C73792 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FA093DB4FF9CE27F94AD0FE /* Pods_Budget_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DB0561E20D9B70500B997D0 /* Build configuration list for PBXNativeTarget "Budget App" */;
 			buildPhases = (
+				89AFDDBE419D2E38A8677157 /* [CP] Check Pods Manifest.lock */,
 				0DB055EF20D9B70500B997D0 /* Sources */,
 				0DB055F020D9B70500B997D0 /* Frameworks */,
 				0DB055F120D9B70500B997D0 /* Resources */,
+				52F189B4186416A03F89898A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,7 +396,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Icecream;
 				TargetAttributes = {
 					0DB055F220D9B70500B997D0 = {
@@ -235,9 +440,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D866EF82147187200A40C31 /* SIMPLIFICA Typeface.ttf in Resources */,
+				0DC92EB62154694C008B909C /* beach.jpg in Resources */,
+				0D4FF7C02122338E006D94EA /* transaction.png in Resources */,
+				0DBF17F321472DA700E7BDA8 /* menu.png in Resources */,
+				0D83E9EC2164671400E2CF4C /* BudgetCollectionView.xib in Resources */,
+				0D67071520F0169C00CD0B87 /* Button.png in Resources */,
+				0DA65E7A21715A770068978A /* Bills.png in Resources */,
+				0DA9FB3720E1A40900E7AE9F /* Main.storyboard in Resources */,
 				0DB0560420D9B70500B997D0 /* LaunchScreen.storyboard in Resources */,
+				0DF5302B211A59C2003746DE /* shuffle.png in Resources */,
+				0D29F41A20E29841008E4D72 /* BackgroundRelax.png in Resources */,
+				0D80C42021625189008658E0 /* background.jpg in Resources */,
 				0DB0560120D9B70500B997D0 /* Assets.xcassets in Resources */,
-				0DB055FC20D9B70500B997D0 /* Main.storyboard in Resources */,
+				0D80C41B215ECAA3008658E0 /* Shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +473,85 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52F189B4186416A03F89898A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Budget App/Pods-Budget App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Budget App/Pods-Budget App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89AFDDBE419D2E38A8677157 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Budget App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0DB055EF20D9B70500B997D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DEE8081219EFF590009CD8B /* AddReminderViewController.swift in Sources */,
+				0DBDEF9020DB053900BE83CA /* AddBillViewController.swift in Sources */,
 				0DB055F920D9B70500B997D0 /* ViewController.swift in Sources */,
+				0D74DC9120E197BB00BBB1C7 /* SplashScreenViewController.swift in Sources */,
+				0DEE807F219EFD370009CD8B /* RemindersTableViewCell.swift in Sources */,
 				0DB055F720D9B70500B997D0 /* AppDelegate.swift in Sources */,
+				0D4FF7BE21222FBD006D94EA /* BudgetCollectionViewCell.swift in Sources */,
+				0D71E7AC20E444D80056867A /* BillsTableViewCell.swift in Sources */,
+				0D596A7321408E9900B6AFF1 /* HistoryViewController.swift in Sources */,
+				0DDF661220F56B58000E4EA7 /* AddBudgetViewController.swift in Sources */,
+				0D596A7721408F6800B6AFF1 /* HistoryTableViewCell.swift in Sources */,
+				0DDD61802166CE3200C23A26 /* CircularProgressView.swift in Sources */,
+				0D492DD3213F4C9A009F446E /* SettingsViewController.swift in Sources */,
+				0D00588521700F9C00AB90EC /* WavyProgressView.swift in Sources */,
+				0DDF660A20F53295000E4EA7 /* TabViewController.swift in Sources */,
+				0DDF660E20F53A97000E4EA7 /* BudgetsViewController.swift in Sources */,
+				0DDF660C20F535C0000E4EA7 /* OverviewViewController.swift in Sources */,
 				0DB055FF20D9B70500B997D0 /* Budget_App.xcdatamodeld in Sources */,
+				0D83E9E62163ED7C00E2CF4C /* BudgetCollectionReusableView.swift in Sources */,
+				0DEE807D219EFCA50009CD8B /* RemindersViewController.swift in Sources */,
+				0DDD617C2166573800C23A26 /* ProgressAnimationViewController.swift in Sources */,
+				0D71E7AA20E444BB0056867A /* BillsViewController.swift in Sources */,
+				0D80C41E21611551008658E0 /* UiView+Extensions.swift in Sources */,
+				0D8D8880216CE2FD00ECF30E /* FooterBudgetCollectionView.swift in Sources */,
+				0D33F7CB20F7F32700DA5164 /* AddSpendViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +620,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -340,6 +628,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -390,6 +679,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,6 +687,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -428,14 +719,18 @@
 		};
 		0DB0561F20D9B70500B997D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CD32D1BB02FE00DFBBE229F /* Pods-Budget App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CC6KPH6NEB;
+				DEVELOPMENT_TEAM = 2WRJZT32XF;
 				INFOPLIST_FILE = "Budget App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icecream.Budget-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,14 +738,18 @@
 		};
 		0DB0562020D9B70500B997D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052891895380C5A494A98EC6 /* Pods-Budget App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CC6KPH6NEB;
+				DEVELOPMENT_TEAM = 2WRJZT32XF;
 				INFOPLIST_FILE = "Budget App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icecream.Budget-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
