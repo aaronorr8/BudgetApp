@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,12 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "a820e8976f42e754e404743a7c7d2e99be42b257"
-            $0.clientKey = "3a529f0c39ff2d8336968065113429085f636bd7"
-            $0.server = "http://ec2-18-188-59-167.us-east-2.compute.amazonaws.com/parse"
-        }
-        Parse.initialize(with: configuration)
+    
         
         return true
     }

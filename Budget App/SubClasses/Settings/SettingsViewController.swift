@@ -8,7 +8,6 @@
 
 import UIKit
 import UserNotifications
-import Parse
 
 class SettingsViewController: UIViewController {
     
@@ -51,21 +50,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let gameScore = PFObject(className:"GameScore")
-//        gameScore["score"] = 1337
-//        gameScore["playerName"] = "Sean Plott"
-//        gameScore["cheatMode"] = false
-//        gameScore.saveInBackground {
-//            (success: Bool, error: Error?) in
-//            if (success) {
-//                // The object has been saved.
-//                print("Success!")
-//            } else {
-//                // There was a problem, check error.description
-//                print("Failed.")
-//            }
-//        }
-    
+
         
     }
     
