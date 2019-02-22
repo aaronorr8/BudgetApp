@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
     //COLORS
     let colorTrackH = #colorLiteral(red: 0.9294117647, green: 0.9058823529, blue: 0.9647058824, alpha: 1)
@@ -34,7 +35,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     var totalBudgetsAvailable = 0.0
     var amt: Int = 0
     
-    //FOR HEADER WHEN SCROLLING
+    //MARK: FOR HEADER WHEN SCROLLING
 //    let duration = 0.3
 //    let offset = scrollView.contentOffset.y
     let hiddenBgColor = UIColor.clear
@@ -43,7 +44,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     let visibleTitleColor = UIColor.black
     var hideNav = Bool()
     
-    //PROGRESS BAR SCALE
+    //MARK: PROGRESS BAR SCALE
     let xScale = CGFloat(1.0)
     let yScale = CGFloat(3.0)
 
@@ -70,7 +71,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //HIDE NAVIGATION BAR
+        //MARK: HIDE NAVIGATION BAR
         UIApplication.shared.statusBarStyle = .lightContent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -79,13 +80,13 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         
        
         
-        //SET BACKGROUND COLOR
+        //MARK: SET BACKGROUND COLOR
         createGradientLayer()
         //self.view.backgroundColor = bgColorSolid
         
         //self.tabBarController?.navigationItem.title = "Profile Settings"
         
-        //SHOW VISIBLE NAV BAR WHEN RETURNING TO VIEW IF SCROLLED
+        //MARK: SHOW VISIBLE NAV BAR WHEN RETURNING TO VIEW IF SCROLLED
         if hideNav == false {
             self.navigationController?.navigationBar.backgroundColor = self.visibleBgColor
             UIApplication.shared.statusBarView?.backgroundColor = self.visibleBgColor
@@ -176,7 +177,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    //COLLECTION HEADER/FOOTER
+    //MARK: COLLECTION HEADER/FOOTER
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //1
         switch kind {
@@ -186,12 +187,12 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! BudgetCollectionReusableView
         
             
-            //HEADER TOTAL REMAINING
+            //MARK: HEADER TOTAL REMAINING
             let amount = Double(amt/100) + Double(amt%100)/100
             headerView.totalRemainingBudget.text = String(convertDoubleToCurency(amount: totalBudgetsAvailable))
             
             
-            //HEADER PROGRESS BAR
+            //MARK: HEADER PROGRESS BAR
             let progress = totalSpentG/totalBudgetsAllocation
             
             headerView.wavyProgress.trackColor = colorTrackH
@@ -204,7 +205,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             
             headerView.wavyProgress.setProgressWithAnimation(duration: 1.0, value: Float(progress))
             
-            //HEADER PROGRESS BAR LABELS
+           //MARK: HEADER PROGRESS BAR LABELS
             
             var headerSpentTotal = String(convertDoubleToCurency(amount: totalSpentG))
             var headerTotalAvailable = String(convertDoubleToCurency(amount: totalBudgetsAllocation))
@@ -214,13 +215,11 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             
             return headerView
         
-        //COLLECTION FOOTER
+        //MARK: COLLECTION FOOTER
         case UICollectionElementKindSectionFooter:
             
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath) as! FooterBudgetCollectionView
-            
-            
-            
+ 
             
             return footerView
             
@@ -235,7 +234,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     
-//HIDE ADD BUDGET BUTTON IF EMPTY
+    //MARK: HIDE ADD BUDGET BUTTON IF EMPTY
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         if budgetNameG.count == 0 {
             return CGSize.zero
@@ -246,7 +245,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
 
     }
     
-    //COLLECTION CELLS
+    //MARK: COLLECTION CELLS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! BudgetCollectionViewCell
         let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "emptyCell", for: indexPath) as! BudgetCollectionViewCell
@@ -256,16 +255,16 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         } else {
         
         
-        //CELL DESIGN
+        //MARK: CELL DESIGN
         cell.backgroundColor = cellBackground
         
-        //CELL VIEW LABELS
+        //MARK: CELL VIEW LABELS
         cell.budgetNameLabel.text = budgetNameG[indexPath.row]
         cell.budgetRemainingLabel.text = "\(String(convertDoubleToCurency(amount: budgetRemainingG[indexPath.row])))"
 //        cell.budgetRemainingLabel.text = "\(String(convertDoubleToCurency(amount: budgetAmountG[indexPath.row] - (budgetHistoryAmountG[budgetNameG[indexPath.row]]!.reduce(0, +)))))"
         
         
-        //PROGRESS BAR LABELS
+        //MARK: PROGRESS BAR LABELS
         let selectedBudget = budgetNameG[indexPath.row]
         let amountSpentInd = budgetHistoryAmountG[selectedBudget]?.reduce(0, +)
         cell.progressTotalLabel.text = "\(String(convertDoubleToCurency(amount: amountSpentInd!))) of \(String(convertDoubleToCurency(amount: budgetAmountG[indexPath.row]))) spent"
@@ -301,9 +300,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    
-    
-    
+
     func calculateTotalAvailable() {
         
 //        let amount = Double(amt/100) + Double(amt%100)/100
@@ -314,9 +311,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         let history = flatArray.reduce(0, +)
         let budgets = budgetAmountG.reduce(0, +)
         totalBudgetsAvailable = budgets - history
-        
-        
-
+    
     }
     
     func calculateTotalAllocation() {
@@ -326,7 +321,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     
-    //REARRANGE BUDGETS
+    //MARK: REARRANGE BUDGETS
      func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         
         
@@ -361,7 +356,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
    
-    // GESTURE RECOGNIZER
+    //MARK: GESTURE RECOGNIZER
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer)
     {
         switch(gesture.state)
@@ -403,6 +398,10 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    //MARK: Save to FireStore
+    
+    
+    //MARK: Create UserDefaults
     func createUserDefaults() {
         if UserDefaults.standard.object(forKey: "BudgetName") != nil {
             budgetNameG = defaults.object(forKey: "BudgetName") as! [String]

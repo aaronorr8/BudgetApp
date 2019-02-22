@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
         
         //UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.1865581274, green: 0.2438463569, blue: 0.3193703592, alpha: 1)
         /*let attrs = [

@@ -8,11 +8,16 @@
 
 import UIKit
 import UserNotifications
+import Firebase
+
 
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var monthlyResetSwitch: UISwitch!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var userIDLabel: UILabel!
     
     
     
@@ -53,6 +58,62 @@ class SettingsViewController: UIViewController {
 
         
     }
+    
+    //MARK: SignIn/Out
+    
+    @IBAction func signOutButton(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("Success. Signed out!!")
+            self.userIDLabel.text = "Signed Out"
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    
+    }
+    
+    @IBAction func signupButton(_ sender: Any) {
+        
+        let email = emailField.text
+        let password = passwordField.text
+        
+        Auth.auth().createUser(withEmail: email!, password: password!) { (user, error) in
+            if error != nil {
+                print(error)
+            } else {
+                print("Signup Successful!")
+                if let userID = Auth.auth().currentUser?.uid {
+                    self.userIDLabel.text = userID
+                }
+//                self.performSegue(withIdentifier: "goToBudgets", sender: self)
+            }
+        }
+    }
+    
+    @IBAction func loginButton(_ sender: Any) {
+        
+        let email = emailField.text
+        let password = passwordField.text
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+            if error != nil {
+                print(error)
+            } else {
+                print("Login successful!!")
+                
+                if let userID = Auth.auth().currentUser?.uid {
+                    self.userIDLabel.text = userID
+                }
+//                self.performSegue(withIdentifier: "goToBudgets", sender: self)
+            }
+        }
+    }
+    
+    
+    
+    
+    
     
     
     

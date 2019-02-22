@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 //GRADIENT SUPPORT
@@ -367,18 +368,14 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
         }
      
         totalSpentG = totalSpentG - totalSpentTemp
-        
-        //SAVE USER DEFAULTS
-        defaults.set(budgetNameG, forKey: "BudgetName")
-        defaults.set(budgetAmountG, forKey: "BudgetAmount")
-        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
-        defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
-        defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
-        defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
-        defaults.set(budgetNoteG, forKey: "BudgetNote")
-        defaults.set(totalSpentG, forKey: "TotalSpent")
-        
-        //PRINT BUDGETS
+        saveToFireStore()
+        saveToUserDefaults()
+        printBudgets()
+    
+    }
+    
+    //MARK: PRINT BUDGETS
+    func printBudgets() {
         print("Deleted!")
         print("budgetNameG: \(budgetNameG)")
         print("budgetAmountG: \(budgetAmountG)")
@@ -388,7 +385,41 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
         print("budgetRemainingG: \(budgetRemainingG)")
         print("totalSpentG: \(totalSpentG)")
         print("BREAK")
+    }
+    
+    //Mark: SAVE USER DEFAULTS
+    func saveToUserDefaults() {
+        defaults.set(budgetNameG, forKey: "BudgetName")
+        defaults.set(budgetAmountG, forKey: "BudgetAmount")
+        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
+        defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
+        defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
+        defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
+        defaults.set(budgetNoteG, forKey: "BudgetNote")
+        defaults.set(totalSpentG, forKey: "TotalSpent")
+    }
+    
+    //MARK: Save to FireStore
+    func saveToFireStore() {
         
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID).setData([
+                "budgetName": budgetNameG,
+                "budgetAmount": budgetAmountG,
+                "budgetHistoryAmount": budgetHistoryAmountG,
+                "budgetNote": budgetNoteG,
+                "budgetHistoryDate": budgetHistoryDateG,
+                "budgetHistoryTime": budgetHistoryTimeG,
+                "budgetRemaining": budgetRemainingG,
+                "totalSpent": totalSpentG
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
     }
     
     @IBAction func cancelButton(_ sender: Any) {

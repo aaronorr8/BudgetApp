@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-
+var db:Firestore!
 
 class AddBudgetViewController: ViewController, UITextFieldDelegate {
     
@@ -48,25 +49,9 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
             let totalSpent = budgetHistoryAmountG[budgetNameField.text!]?.reduce(0, +)
             budgetRemainingG.append(amount - totalSpent!)
             
-            //SAVE USER DEFAULTS
-            defaults.set(budgetNameG, forKey: "BudgetName")
-            defaults.set(budgetAmountG, forKey: "BudgetAmount")
-            defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
-            defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
-            defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
-            defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
-            defaults.set(budgetNoteG, forKey: "BudgetNote")
-            
-            //PRINT BUDGETS
-            print("budgetName: \(budgetNameG)")
-            print("budgetAmount: \(budgetAmountG)")
-            print("budgetHistoryAmount: \(budgetHistoryAmountG)")
-            print("budgetNote: \(budgetNoteG)")
-            print("budgetHistoryDate: \(budgetHistoryDateG)")
-            print("budgetHistoryTime: \(budgetHistoryTimeG)")
-            print("totalSpent: \(String(describing: totalSpent))")
-            print("budgetRemaining: \(budgetRemainingG)")
-            print("BREAK")
+            saveToFireStore()
+            saveUserDefaults()
+            printBudgets()
             
             self.dismiss(animated: true, completion: nil)
             
@@ -105,25 +90,9 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
                 let totalSpent = budgetHistoryAmountG[budgetNameField.text!]?.reduce(0, +)
                 budgetRemainingG[myIndexG] = (amount - totalSpent!)
                 
-                //SAVE USER DEFAULTS
-                defaults.set(budgetNameG, forKey: "BudgetName")
-                defaults.set(budgetAmountG, forKey: "BudgetAmount")
-                defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
-                defaults.set(budgetNoteG, forKey: "BudgetNote")
-                defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
-                defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
-                defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
-                
-                //PRINT BUDGETS
-                print("budgetName: \(budgetNameG)")
-                print("budgetAmount: \(budgetAmountG)")
-                print("budgetHistoryAmount: \(budgetHistoryAmountG)")
-                print("budgetNote: \(budgetNoteG)")
-                print("budgetHistoryDate: \(budgetHistoryDateG)")
-                print("budgetHistoryTime: \(budgetHistoryTimeG)")
-                print("totalSpent: \(String(describing: totalSpentG))")
-                print("budgetRemaining: \(budgetRemainingG)")
-                print("BREAK")
+                saveToFireStore()
+                saveUserDefaults()
+                printBudgets()
                 
                 closeAllG = true
                 editModeG = false
@@ -138,6 +107,54 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: Save to FireStore
+    func saveToFireStore() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            
+        db.collection("budgets").document(userID).setData([
+            "budgetName": budgetNameG,
+            "budgetAmount": budgetAmountG,
+            "budgetHistoryAmount": budgetHistoryAmountG,
+            "budgetNote": budgetNoteG,
+            "budgetHistoryDate": budgetHistoryDateG,
+            "budgetHistoryTime": budgetHistoryTimeG,
+            "budgetRemaining": budgetRemainingG
+            
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+    }
+    
+    //MARK: Print Budgets
+    func printBudgets() {
+        print("budgetName: \(budgetNameG)")
+        print("budgetAmount: \(budgetAmountG)")
+        print("budgetHistoryAmount: \(budgetHistoryAmountG)")
+        print("budgetNote: \(budgetNoteG)")
+        print("budgetHistoryDate: \(budgetHistoryDateG)")
+        print("budgetHistoryTime: \(budgetHistoryTimeG)")
+        print("totalSpent: \(String(describing: totalSpentG))")
+        print("budgetRemaining: \(budgetRemainingG)")
+        print("BREAK")
+    }
+    
+    
+    //MARK Save UserDefaults
+    func saveUserDefaults() {
+        defaults.set(budgetNameG, forKey: "BudgetName")
+        defaults.set(budgetAmountG, forKey: "BudgetAmount")
+        defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
+        defaults.set(budgetNoteG, forKey: "BudgetNote")
+        defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
+        defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
+        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
+    }
     
     override func viewDidLayoutSubviews() {
         
@@ -167,6 +184,8 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
         
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         //UINavigationBar.appearance().barTintColor = bgColorGradient1
@@ -251,6 +270,8 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
         let amount = Double(amt/100) + Double(amt%100)/100
         return formatter.string(from: NSNumber(value: amount))
     }
+    
+    
     
 
     /*
