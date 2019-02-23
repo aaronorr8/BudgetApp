@@ -53,7 +53,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        db = Firestore.firestore()
+        fireStoreListener()
         
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
@@ -511,6 +512,37 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
         
         
+    }
+    
+    //MARK: FireStore Listener
+    func fireStoreListener() {
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID)
+                .addSnapshotListener { documentSnapshot, error in
+                    guard let document = documentSnapshot else {
+                        print("Error fetching document: \(error!)")
+                        return
+                    }
+                    guard let data = document.data() else {
+                        print("Document data was empty.")
+                        return
+                    }
+                    budgetNameG = document.get("budgetName") as! [String]
+                    budgetAmountG = document.get("budgetAmount") as! [Double]
+                    budgetHistoryAmountG = document.get("budgetHistoryAmount") as! [String : [Double]]
+                    budgetNoteG = document.get("budgetNote") as! [String : [String]]
+                    budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
+                    budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
+                    budgetRemainingG = document.get("budgetRemaining") as! [Double]
+                    
+                    print("Current data: \(data)")
+                    
+                    self.collectionView.reloadData()
+                    
+            }
+            
+            
+        }
     }
     
     
