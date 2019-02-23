@@ -54,7 +54,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+        db = Firestore.firestore()
 
         
     }
@@ -108,6 +109,100 @@ class SettingsViewController: UIViewController {
 //                self.performSegue(withIdentifier: "goToBudgets", sender: self)
             }
         }
+    }
+    
+    @IBAction func testItButton(_ sender: Any) {
+        
+
+//        if let userID = Auth.auth().currentUser?.uid {
+//
+//        let docRef = db.collection(userID).document("budgetName")
+//                docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                print("Document data: \(dataDescription)")
+////                budgetNameG = [dataDescription]
+////                print("budgetNameG: \(budgetNameG)")
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+//    }
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            
+            let fetch = db.collection("budgets").document(userID)
+            fetch.getDocument(source: .cache) { (document, error) in
+                if let document = document {
+                    budgetNameG = document.get("budgetName") as! [String]
+                    budgetAmountG = document.get("budgetAmount") as! [Double]
+                    budgetHistoryAmountG = document.get("budgetHistoryAmount") as! [String : [Double]]
+                    budgetNoteG = document.get("budgetNote") as! [String : [String]]
+                    budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
+                    budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
+                    budgetRemainingG = document.get("budgetRemaining") as! [Double]
+                    
+                    self.printBudgets()
+                    
+                } else {
+                    print("Document does not exist in cache")
+                }
+            }
+            
+//            let budgetName = db.collection(userID).document("budgetName")
+//            budgetName.getDocument(source: .cache) { (document, error) in
+//                if let document = document {
+//                    budgetNameG = document.get("budgetName") as! [String]
+//                    print(budgetNameG)
+//                } else {
+//                    print("Document does not exist in cache")
+//                }
+//            }
+//
+//            let budgetAmount = db.collection(userID).document("budgetAmount")
+//            budgetAmount.getDocument(source: .cache) { (document, error) in
+//                if let document = document {
+//                    budgetAmountG = document.get("budgetAmount") as! [Double]
+//                    print(budgetAmountG)
+//                } else {
+//                    print("Document does not exist in cache")
+//                }
+//            }
+            
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+    //MARK: FireStore Listen for Data
+    func listenDocument() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            print(userID)
+            db.collection("budgets").document(userID)
+                .addSnapshotListener { documentSnapshot, error in
+                    guard let document = documentSnapshot else {
+                        print("Error fetching document: \(error!)")
+                        return
+                    }
+                    guard let data = document.data() else {
+                        print("Document data was empty.")
+                        return
+                    }
+                    print("Current data: \(data)")
+            }
+        }
+    }
+    
+    func getDocumentWithOptions() {
+        
+       print(db)
     }
     
     

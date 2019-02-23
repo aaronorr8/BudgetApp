@@ -50,7 +50,7 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
             budgetRemainingG.append(amount - totalSpent!)
             
             saveToFireStore()
-            saveUserDefaults()
+//            saveUserDefaults()
             printBudgets()
             
             self.dismiss(animated: true, completion: nil)
@@ -91,7 +91,7 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
                 budgetRemainingG[myIndexG] = (amount - totalSpent!)
                 
                 saveToFireStore()
-                saveUserDefaults()
+//                saveUserDefaults()
                 printBudgets()
                 
                 closeAllG = true
@@ -126,6 +126,24 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
                     print("Error writing document: \(err)")
                 } else {
                     print("Document successfully written!")
+                }
+            }
+        }
+    }
+    
+    //MARK: Save to FireStore 2
+    func saveToFireStore2() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            
+            db.collection(userID).document("budgetName").setData(["budgetName": budgetNameG])
+            db.collection(userID).document("budgetAmount").setData(["budgetAmount": budgetAmountG])
+
+            { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("budgetName successfully written!")
                 }
             }
         }

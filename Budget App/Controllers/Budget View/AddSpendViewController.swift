@@ -327,7 +327,9 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
             
         totalSpentG = totalSpentG + amount
             
-        setUserDefaults()
+        
+//        setUserDefaults()
+        saveToFireStore()
         
         
 //PRINT BUDGETS
@@ -369,7 +371,7 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
      
         totalSpentG = totalSpentG - totalSpentTemp
         saveToFireStore()
-        saveToUserDefaults()
+//        setUserDefaults()
         printBudgets()
     
     }
@@ -388,14 +390,12 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
     }
     
     //Mark: SAVE USER DEFAULTS
-    func saveToUserDefaults() {
-        defaults.set(budgetNameG, forKey: "BudgetName")
-        defaults.set(budgetAmountG, forKey: "BudgetAmount")
-        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
+    func setUserDefaults() {
         defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
+        defaults.set(budgetNoteG, forKey: "BudgetNote")
+        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
         defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
         defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
-        defaults.set(budgetNoteG, forKey: "BudgetNote")
         defaults.set(totalSpentG, forKey: "TotalSpent")
     }
     
@@ -491,14 +491,6 @@ class AddSpendViewController: ViewController, UITextFieldDelegate{
         print("tap")
     }
     
-    func setUserDefaults() {
-        defaults.set(budgetHistoryAmountG, forKey: "BudgetHistoryAmount")
-        defaults.set(budgetNoteG, forKey: "BudgetNote")
-        defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
-        defaults.set(budgetHistoryDateG, forKey: "BudgetHistoryDate")
-        defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
-        defaults.set(totalSpentG, forKey: "TotalSpent")
-    }
     
 
 }

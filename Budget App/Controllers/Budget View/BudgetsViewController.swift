@@ -53,6 +53,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
         }
@@ -105,7 +107,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        createUserDefaults()
+//        createUserDefaults()
         collectionView.reloadData()
         calculateTotalAvailable()
         calculateTotalAllocation()
@@ -342,7 +344,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         budgetRemainingG.remove(at: sourceIndexPath.row)
         budgetRemainingG.insert(item3, at: destinationIndexPath.row)
         
-        setUserDefaults()
+//        setUserDefaults()
+        saveToFireStore()
         
     }
    
@@ -399,6 +402,29 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     //MARK: Save to FireStore
+    func saveToFireStore() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID).setData([
+                "budgetName": budgetNameG,
+                "budgetAmount": budgetAmountG,
+                "budgetHistoryAmount": budgetHistoryAmountG,
+                "budgetNote": budgetNoteG,
+                "budgetHistoryDate": budgetHistoryDateG,
+                "budgetHistoryTime": budgetHistoryTimeG,
+                "budgetRemaining": budgetRemainingG,
+                "totalSpent": totalSpentG
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+    }
+    
+    
     
     
     //MARK: Create UserDefaults
