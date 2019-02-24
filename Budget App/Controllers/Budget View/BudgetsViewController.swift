@@ -54,7 +54,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         db = Firestore.firestore()
-        fireStoreListener()
+        
         
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
@@ -73,6 +73,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        fireStoreListener()
         
         //MARK: HIDE NAVIGATION BAR
         UIApplication.shared.statusBarStyle = .lightContent
@@ -402,28 +404,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    //MARK: Save to FireStore
-    func saveToFireStore() {
-        
-        if let userID = Auth.auth().currentUser?.uid {
-            db.collection("budgets").document(userID).setData([
-                "budgetName": budgetNameG,
-                "budgetAmount": budgetAmountG,
-                "budgetHistoryAmount": budgetHistoryAmountG,
-                "budgetNote": budgetNoteG,
-                "budgetHistoryDate": budgetHistoryDateG,
-                "budgetHistoryTime": budgetHistoryTimeG,
-                "budgetRemaining": budgetRemainingG,
-                "totalSpent": totalSpentG
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                }
-            }
-        }
-    }
+   
     
     
     
@@ -514,6 +495,30 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         
     }
     
+    //MARK: Save to FireStore
+    func saveToFireStore() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID).setData([
+                "budgetName": budgetNameG,
+                "budgetAmount": budgetAmountG,
+                "budgetHistoryAmount": budgetHistoryAmountG,
+                "budgetNote": budgetNoteG,
+                "budgetHistoryDate": budgetHistoryDateG,
+                "budgetHistoryTime": budgetHistoryTimeG,
+                "budgetRemaining": budgetRemainingG,
+                "totalSpent": totalSpentG
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    self.calculateTotalAvailable()
+                }
+            }
+        }
+    }
+    
     //MARK: FireStore Listener
     func fireStoreListener() {
         if let userID = Auth.auth().currentUser?.uid {
@@ -538,10 +543,9 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
                     print("Current data: \(data)")
                     
                     self.collectionView.reloadData()
+                    self.calculateTotalAvailable()
                     
             }
-            
-            
         }
     }
     

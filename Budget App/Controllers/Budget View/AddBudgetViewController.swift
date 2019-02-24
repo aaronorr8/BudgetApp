@@ -131,23 +131,6 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
         }
     }
     
-    //MARK: Save to FireStore 2
-    func saveToFireStore2() {
-        
-        if let userID = Auth.auth().currentUser?.uid {
-            
-            db.collection(userID).document("budgetName").setData(["budgetName": budgetNameG])
-            db.collection(userID).document("budgetAmount").setData(["budgetAmount": budgetAmountG])
-
-            { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("budgetName successfully written!")
-                }
-            }
-        }
-    }
     
     //MARK: Print Budgets
     func printBudgets() {

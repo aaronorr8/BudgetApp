@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -63,7 +64,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        
+        fireStoreListener()
     }
     
 
@@ -209,6 +210,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             print("budgetRemainingG After: \(budgetRemainingG)")
             
+            self.saveToFireStore()
+            
             self.tableView.reloadData()
             
             self.setUserDefaults()
@@ -275,6 +278,60 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         defaults.set(budgetRemainingG, forKey: "BudgetRemaining")
         defaults.set(totalSpentG, forKey: "TotalSpent")
         
+    }
+    
+    //MARK: Save to FireStore
+    func saveToFireStore() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            
+            db.collection("budgets").document(userID).setData([
+                "budgetName": budgetNameG,
+                "budgetAmount": budgetAmountG,
+                "budgetHistoryAmount": budgetHistoryAmountG,
+                "budgetNote": budgetNoteG,
+                "budgetHistoryDate": budgetHistoryDateG,
+                "budgetHistoryTime": budgetHistoryTimeG,
+                "budgetRemaining": budgetRemainingG
+                
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+    }
+    
+    
+    //MARK: FireStore Listener
+    func fireStoreListener() {
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID)
+                .addSnapshotListener { documentSnapshot, error in
+                    guard let document = documentSnapshot else {
+                        print("Error fetching document: \(error!)")
+                        return
+                    }
+                    guard let data = document.data() else {
+                        print("Document data was empty.")
+                        return
+                    }
+                    budgetNameG = document.get("budgetName") as! [String]
+                    budgetAmountG = document.get("budgetAmount") as! [Double]
+                    budgetHistoryAmountG = document.get("budgetHistoryAmount") as! [String : [Double]]
+                    budgetNoteG = document.get("budgetNote") as! [String : [String]]
+                    budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
+                    budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
+                    budgetRemainingG = document.get("budgetRemaining") as! [Double]
+                    
+                    print("Current data: \(data)")
+                    
+                    self.tableView.reloadData()
+                    
+            }
+        }
     }
 
     
