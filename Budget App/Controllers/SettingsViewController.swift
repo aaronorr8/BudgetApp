@@ -254,7 +254,8 @@ class SettingsViewController: UIViewController {
                 self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-                self.setUserDefaults()
+//                self.setUserDefaults()
+                self.saveToFireStore()
                 self.printBudgets()
             }))
             alert.addAction(UIAlertAction(title: "No. Just reset my budgets", style: UIAlertActionStyle.default, handler: { _ in
@@ -266,7 +267,8 @@ class SettingsViewController: UIViewController {
                 self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-                self.setUserDefaults()
+//                self.setUserDefaults()
+                self.saveToFireStore()
                 self.printBudgets()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
@@ -293,7 +295,8 @@ class SettingsViewController: UIViewController {
                 self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-                self.setUserDefaults()
+//                self.setUserDefaults()
+                self.saveToFireStore()
                 self.printBudgets()
             }))
             
@@ -318,7 +321,8 @@ class SettingsViewController: UIViewController {
             deleteRolloverBudget()
         }
         
-        setUserDefaults()
+//        setUserDefaults()
+        saveToFireStore()
         printBudgets()
     }
     
@@ -342,7 +346,8 @@ class SettingsViewController: UIViewController {
             totalSpentG = 0.0
         }
         
-        setUserDefaults()
+//        setUserDefaults()
+        saveToFireStore()
         printBudgets()
     }
     
@@ -523,6 +528,30 @@ class SettingsViewController: UIViewController {
                 print(item.identifier)
                 print(item.trigger)
                 print("- - - - - - - - - -")
+            }
+        }
+    }
+    
+    //MARK: Save to FireStore
+    func saveToFireStore() {
+        
+        if let userID = Auth.auth().currentUser?.uid {
+            db.collection("budgets").document(userID).setData([
+                "budgetName": budgetNameG,
+                "budgetAmount": budgetAmountG,
+                "budgetHistoryAmount": budgetHistoryAmountG,
+                "budgetNote": budgetNoteG,
+                "budgetHistoryDate": budgetHistoryDateG,
+                "budgetHistoryTime": budgetHistoryTimeG,
+                "budgetRemaining": budgetRemainingG,
+                "totalSpent": totalSpentG
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    
+                }
             }
         }
     }

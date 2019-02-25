@@ -111,7 +111,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidAppear(_ animated: Bool) {
 //        createUserDefaults()
-        collectionView.reloadData()
+//        collectionView.reloadData()
         calculateTotalAvailable()
         calculateTotalAllocation()
         
@@ -539,11 +539,13 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
                     budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
                     budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
                     budgetRemainingG = document.get("budgetRemaining") as! [Double]
+                    totalSpentG = document.get("totalSpent") as! Double
                     
                     print("Current data: \(data)")
                     
                     self.collectionView.reloadData()
                     self.calculateTotalAvailable()
+                    self.calculateTotalAllocation()
                     
             }
         }

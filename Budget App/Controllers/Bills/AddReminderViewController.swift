@@ -43,6 +43,8 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UIPicker
         print("add reminder view loaded")
         printReminders()
         
+        
+        
         super.viewDidLoad()
         
         print("myIndexG: \(myIndexG)")
@@ -197,7 +199,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     
     
-    //ADD NOTIFICATION
+    //MARK: ADD NOTIFICATION
     @IBAction func addReminder(_ sender: Any) {
         
 //        #error("Add handler for edit mode")
@@ -208,6 +210,7 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UIPicker
             //ADD NAME
             if reminderNameInput != nil {
                 reminderNameG.append(reminderNameInput.text!)
+                
             }
 
             //ADD AMOUNT

@@ -110,7 +110,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             totalSpentG = totalSpent
             
-            self.setUserDefaults()
+            self.saveToFireStore()
+            
+//            self.setUserDefaults()
             
         }
         
@@ -132,7 +134,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             totalSpentG = totalSpent
             
-            self.setUserDefaults()
+            self.saveToFireStore()
+            
+//            self.setUserDefaults()
             
         }
         
@@ -292,7 +296,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 "budgetNote": budgetNoteG,
                 "budgetHistoryDate": budgetHistoryDateG,
                 "budgetHistoryTime": budgetHistoryTimeG,
-                "budgetRemaining": budgetRemainingG
+                "budgetRemaining": budgetRemainingG,
+                "totalSpent": totalSpentG
                 
             ]) { err in
                 if let err = err {
@@ -325,6 +330,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
                     budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
                     budgetRemainingG = document.get("budgetRemaining") as! [Double]
+                    totalSpentG = document.get("totalSpent") as! Double
                     
                     print("Current data: \(data)")
                     

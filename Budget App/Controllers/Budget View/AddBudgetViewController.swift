@@ -119,7 +119,8 @@ class AddBudgetViewController: ViewController, UITextFieldDelegate {
             "budgetNote": budgetNoteG,
             "budgetHistoryDate": budgetHistoryDateG,
             "budgetHistoryTime": budgetHistoryTimeG,
-            "budgetRemaining": budgetRemainingG
+            "budgetRemaining": budgetRemainingG,
+            "totalSpent": totalSpentG
             
             ]) { err in
                 if let err = err {

@@ -36,13 +36,16 @@ var reminderNameG = [String]()
 var reminderAmountG = [Double]()
 var reminderDateG = [Int]()
 var reminderDoneG = [Bool]()
-var reminderHistoryAmountG = [String: [Double]]()
-var reminderHistoryDateG = [String: [String]]()
+//var reminderHistoryAmountG = [String: [Double]]()
+//var reminderHistoryDateG = [String: [String]]()
 var reminderLinkedBudgetG = [String]()
 var reminderRepeatG = [Bool]()
 var reminderNotificationG = [Bool]()
 var reminderNoteIDG = [Int]()
+
+//WARNING[SAVE THIS TO USER DEFAULTS]
 var notificationIDG = 0
+
 
 
 var budgetNameG = [String]() //array of budget names e.g., [grocery, clothing, etc]
