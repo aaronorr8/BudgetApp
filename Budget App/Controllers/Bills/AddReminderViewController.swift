@@ -43,6 +43,9 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate, UIPicker
         print("add reminder view loaded")
         printReminders()
         
+        //MARK: NDM
+        let reminderItemArray = [ReminderItem]()
+        
         
         
         super.viewDidLoad()
