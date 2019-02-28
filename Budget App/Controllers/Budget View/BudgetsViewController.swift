@@ -451,38 +451,38 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             rolloverTotalG = defaults.object(forKey: "RolloverTotal") as! Double
             print("User Defaults rolloverTotalG: \(defaults.object(forKey: "RolloverTotal") as! Double)")
         }
-        if UserDefaults.standard.object(forKey: "ReminderName") != nil {
-            reminderNameG = defaults.object(forKey: "ReminderName") as! [String]
-            print("User Defaults ReminderName: \(defaults.object(forKey: "ReminderName") as! [String])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderDone") != nil {
-            reminderDoneG = defaults.object(forKey: "ReminderDone") as! [Bool]
-            print("User Defaults ReminderDone: \(defaults.object(forKey: "ReminderDone") as! [Bool])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderAmount") != nil {
-            reminderAmountG = defaults.object(forKey: "ReminderAmount") as! [Double]
-            print("User Defaults ReminderAmount: \(defaults.object(forKey: "ReminderAmount") as! [Double])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderLinkedBudget") != nil {
-            reminderLinkedBudgetG = defaults.object(forKey: "ReminderLinkedBudget") as! [String]
-            print("User Defaults ReminderLinkedBudget: \(defaults.object(forKey: "ReminderLinkedBudget") as! [String])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderDate") != nil {
-            reminderDateG = defaults.object(forKey: "ReminderDate") as! [Int]
-            print("User Defaults ReminderDate: \(defaults.object(forKey: "ReminderDate") as! [Int])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderRepeat") != nil {
-            reminderRepeatG = defaults.object(forKey: "ReminderRepeat") as! [Bool]
-            print("User Defaults ReminderRepeat: \(defaults.object(forKey: "ReminderRepeat") as! [Bool])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderNotification") != nil {
-            reminderNotificationG = defaults.object(forKey: "ReminderNotification") as! [Bool]
-            print("User Defaults ReminderNotification: \(defaults.object(forKey: "ReminderNotification") as! [Bool])")
-        }
-        if UserDefaults.standard.object(forKey: "ReminderNoteID") != nil {
-            reminderNoteIDG = defaults.object(forKey: "ReminderNoteID") as! [Int]
-            print("User Defaults ReminderNoteID: \(defaults.object(forKey: "ReminderNoteID") as! [Int])")
-        }
+//        if UserDefaults.standard.object(forKey: "ReminderName") != nil {
+//            reminderNameG = defaults.object(forKey: "ReminderName") as! [String]
+//            print("User Defaults ReminderName: \(defaults.object(forKey: "ReminderName") as! [String])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderDone") != nil {
+//            reminderDoneG = defaults.object(forKey: "ReminderDone") as! [Bool]
+//            print("User Defaults ReminderDone: \(defaults.object(forKey: "ReminderDone") as! [Bool])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderAmount") != nil {
+//            reminderAmountG = defaults.object(forKey: "ReminderAmount") as! [Double]
+//            print("User Defaults ReminderAmount: \(defaults.object(forKey: "ReminderAmount") as! [Double])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderLinkedBudget") != nil {
+//            reminderLinkedBudgetG = defaults.object(forKey: "ReminderLinkedBudget") as! [String]
+//            print("User Defaults ReminderLinkedBudget: \(defaults.object(forKey: "ReminderLinkedBudget") as! [String])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderDate") != nil {
+//            reminderDateG = defaults.object(forKey: "ReminderDate") as! [Int]
+//            print("User Defaults ReminderDate: \(defaults.object(forKey: "ReminderDate") as! [Int])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderRepeat") != nil {
+//            reminderRepeatG = defaults.object(forKey: "ReminderRepeat") as! [Bool]
+//            print("User Defaults ReminderRepeat: \(defaults.object(forKey: "ReminderRepeat") as! [Bool])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderNotification") != nil {
+//            reminderNotificationG = defaults.object(forKey: "ReminderNotification") as! [Bool]
+//            print("User Defaults ReminderNotification: \(defaults.object(forKey: "ReminderNotification") as! [Bool])")
+//        }
+//        if UserDefaults.standard.object(forKey: "ReminderNoteID") != nil {
+//            reminderNoteIDG = defaults.object(forKey: "ReminderNoteID") as! [Int]
+//            print("User Defaults ReminderNoteID: \(defaults.object(forKey: "ReminderNoteID") as! [Int])")
+//        }
         if UserDefaults.standard.object(forKey: "NotificationID") != nil {
             notificationIDG = defaults.object(forKey: "NotificationID") as! Int
             print("User Defaults NotificationID: \(defaults.object(forKey: "NotificationID") as! Int)")

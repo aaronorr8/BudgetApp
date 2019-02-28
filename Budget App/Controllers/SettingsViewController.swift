@@ -18,26 +18,15 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var userIDLabel: UILabel!
-    
-    
-    
-    
+
     
     var amt: Int = 0
     var referenceNote = 0
     
     var indexesToRemove = [Int]()
-//    var tempName = [String]()
-//    var tempDone = [Bool]()
-//    var tempAmount = [Double]()
-//    var tempLinkedBudget = [String]()
-//    var tempDate = [Int]()
-//    var tempRepeat = [Bool]()
-//    var tempNotification = [Bool]()
-//    var tempNoteID = [Int]()
-    
    
     override func viewWillAppear(_ animated: Bool) {
+        
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
         setNavigationBarColor()
@@ -57,7 +46,6 @@ class SettingsViewController: UIViewController {
        
         db = Firestore.firestore()
 
-        
     }
     
     //MARK: SignIn/Out
@@ -87,7 +75,6 @@ class SettingsViewController: UIViewController {
                 if let userID = Auth.auth().currentUser?.uid {
                     self.userIDLabel.text = userID
                 }
-//                self.performSegue(withIdentifier: "goToBudgets", sender: self)
             }
         }
     }
@@ -106,7 +93,6 @@ class SettingsViewController: UIViewController {
                 if let userID = Auth.auth().currentUser?.uid {
                     self.userIDLabel.text = userID
                 }
-//                self.performSegue(withIdentifier: "goToBudgets", sender: self)
             }
         }
         
@@ -142,38 +128,6 @@ class SettingsViewController: UIViewController {
         }
         
 
-        
-        
-        
-        /*
-        
-        
-        
-
-        if let userID = Auth.auth().currentUser?.uid {
-
-            let docRef = db.collection("budgets").document(userID)
-            docRef.getDocument { (document, error) in
-                if let document = document {
-                    budgetNameG = document.get("budgetName") as! [String]
-                    budgetAmountG = document.get("budgetAmount") as! [Double]
-                    budgetHistoryAmountG = document.get("budgetHistoryAmount") as! [String : [Double]]
-                    budgetNoteG = document.get("budgetNote") as! [String : [String]]
-                    budgetHistoryDateG = document.get("budgetHistoryDate") as! [String : [String]]
-                    budgetHistoryTimeG = document.get("budgetHistoryTime") as! [String : [String]]
-                    budgetRemainingG = document.get("budgetRemaining") as! [Double]
-
-                    self.printBudgets()
-
-                } else {
-                    print("Document does not exist in cache")
-                }
-            }
-        }
- 
- */
-        
-        
     }
     
     
@@ -202,11 +156,6 @@ class SettingsViewController: UIViewController {
         
        print(db)
     }
-    
-    
-    
-    
-    
     
     
     
@@ -251,12 +200,10 @@ class SettingsViewController: UIViewController {
                 self.resetReminderStatus()
                 self.cancelNonRepeatingReminderNotifications()
                 self.clearTempArrays()
-                self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-//                self.setUserDefaults()
                 self.saveToFireStore()
-                self.printBudgets()
+                self.saveData()
             }))
             alert.addAction(UIAlertAction(title: "No. Just reset my budgets", style: UIAlertActionStyle.default, handler: { _ in
                 self.resetBudgetsNoRollover()
@@ -264,12 +211,10 @@ class SettingsViewController: UIViewController {
                 self.resetReminderStatus()
                 self.cancelNonRepeatingReminderNotifications()
                 self.clearTempArrays()
-                self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-//                self.setUserDefaults()
                 self.saveToFireStore()
-                self.printBudgets()
+                self.saveData()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
                 print("Cancel")
@@ -295,17 +240,13 @@ class SettingsViewController: UIViewController {
                 self.printBudgets()
                 self.deleteNonRepeatingReminders()
                 self.updateArrays()
-//                self.setUserDefaults()
                 self.saveToFireStore()
-                self.printBudgets()
+                self.saveData()
             }))
             
             
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
-        
     }
     
     
@@ -320,10 +261,6 @@ class SettingsViewController: UIViewController {
         if budgetNameG.contains("Rollover") {
             deleteRolloverBudget()
         }
-        
-//        setUserDefaults()
-        saveToFireStore()
-        printBudgets()
     }
     
     func rolloverToRolloverBudget() {
@@ -345,10 +282,6 @@ class SettingsViewController: UIViewController {
             budgetRemainingG = budgetAmountG
             totalSpentG = 0.0
         }
-        
-//        setUserDefaults()
-        saveToFireStore()
-        printBudgets()
     }
     
     func deleteRolloverBudget() {
@@ -366,8 +299,6 @@ class SettingsViewController: UIViewController {
     
     
     func addRolloverBudget() {
-        //Add Rollover Budget
-        print("Add Rollover Budget")
         budgetNameG.append("Rollover")
         let amount = Double(amt/100) + Double(amt%100)/100
         budgetAmountG.append(rolloverTotalG)
@@ -381,7 +312,6 @@ class SettingsViewController: UIViewController {
     
     
     func resetBudgets() {
-        //RESET BUDGETS
         budgetHistoryAmountG.forEach({ (key, value) -> Void in
             budgetHistoryAmountG[key] = []
         })
@@ -401,55 +331,58 @@ class SettingsViewController: UIViewController {
     
     func resetReminderStatus() {
         print("Reset Reminder Status")
-        for i in 0..<(reminderDoneG.count) {
-            reminderDoneG[i] = false
+        for i in 0..<(reminderArray.count){
+        reminderArray[i].done = false
         }
     }
     
     
     func deleteNonRepeatingReminders() {
         print("Delete Non-Repeating Reminders")
-        for i in 0..<(reminderNameG.count) {
-            if reminderRepeatG[i] == false {
+        for i in 0..<(reminderArray.count) {
+            if reminderArray[i].reminderRepeat == false {
                 indexesToRemove.append(i)
             }
         }
     }
     
     func clearTempArrays() {
-        print("Clear Temperary Array")
         indexesToRemove = []
     }
 
    
     func updateArrays() {
-        print("Update Arrays to Remove Non-Repeating Reminders")
-        let tempName = reminderNameG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempDone = reminderDoneG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempAmount = reminderAmountG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempLinkedBudget = reminderLinkedBudgetG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempDate = reminderDateG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempRepeat = reminderRepeatG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempNotification = reminderNotificationG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
-        let tempNoteID = reminderNoteIDG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
         
-        reminderNameG = tempName
-        reminderDoneG = tempDone
-        reminderAmountG = tempAmount
-        reminderLinkedBudgetG = tempLinkedBudget
-        reminderDateG = tempDate
-        reminderRepeatG = tempRepeat
-        reminderNotificationG = tempNotification
-        reminderNoteIDG = tempNoteID
+        let tempArray = reminderArray.enumerated().filter { !indexesToRemove.contains($0.offset)}.map { $0.element}
+        reminderArray = tempArray
+        
+        
+//        let tempName = reminderNameG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempDone = reminderDoneG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempAmount = reminderAmountG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempLinkedBudget = reminderLinkedBudgetG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempDate = reminderDateG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempRepeat = reminderRepeatG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempNotification = reminderNotificationG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//        let tempNoteID = reminderNoteIDG.enumerated().filter { !indexesToRemove.contains($0.offset) }.map { $0.element}
+//
+//        reminderNameG = tempName
+//        reminderDoneG = tempDone
+//        reminderAmountG = tempAmount
+//        reminderLinkedBudgetG = tempLinkedBudget
+//        reminderDateG = tempDate
+//        reminderRepeatG = tempRepeat
+//        reminderNotificationG = tempNotification
+//        reminderNoteIDG = tempNoteID
     }
     
  
     
     func cancelNonRepeatingReminderNotifications() {
         print("Cancel Notifications for Non-Repeating Reminders")
-        for i in 0..<(reminderNameG.count) {
-            if reminderRepeatG[i] == false {
-                noteReference = reminderNoteIDG[i]
+        for i in 0..<(reminderArray.count) {
+            if reminderArray[i].reminderRepeat == false {
+                noteReference = reminderArray[i].notificationID
                 cancelNotifications()
             }
         }
@@ -460,7 +393,6 @@ class SettingsViewController: UIViewController {
     func cancelNotifications() {
         let reference = noteReference
         let noteID = "notificationID\(reference)"
-        print(noteID)
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [noteID])
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -469,12 +401,10 @@ class SettingsViewController: UIViewController {
     @IBAction func monthlyResetSwitch (_ sender: Any) {
         if monthlyResetSwitch.isOn == true {
             scheduleResetNotification()
-            printPendingNotifications()
             monthlyResetNotificationSetting = true
             setDefaultsForMonthlyReset()
         } else {
             cancelResetNotification()
-            printPendingNotifications()
             monthlyResetNotificationSetting = false
             setDefaultsForMonthlyReset()
         }
@@ -556,6 +486,17 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    //MARK: SAVE DATA TO CODEABLE
+    func saveData() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(reminderArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding reminder array, \(error)")
+        }
+    }
     
     func printBudgets() {
         print("RESET!!!")
@@ -568,15 +509,6 @@ class SettingsViewController: UIViewController {
         print("budgetRemaining: \(budgetRemainingG)")
         print("totalSpentG: \(totalSpentG)")
         print("rolloverTotalG: \(rolloverTotalG)")
-        print("reminderNameG: \(reminderNameG)")
-        print("reminderAmountG: \(reminderAmountG)")
-        print("reminderLinkedBudgetG: \(reminderLinkedBudgetG)")
-        print("reminderDateG: \(reminderDateG)")
-        print("reminderDoneG: \(reminderDoneG)")
-        print("reminderRepeatG: \(reminderRepeatG)")
-        print("reminderNotificationG: \(reminderNotificationG)")
-        print("ReminderNoteIDG: \(reminderNoteIDG)")
-        print("NotificationIDG: \(notificationIDG)")
         print("BREAK")
     }
     
@@ -592,16 +524,6 @@ class SettingsViewController: UIViewController {
         defaults.set(budgetHistoryTimeG, forKey: "BudgetHistoryTime")
         defaults.set(rolloverG, forKey: "Rollover")
         defaults.set(rolloverTotalG, forKey: "RolloverTotal")
-        
-        defaults.set(reminderNameG, forKey: "ReminderName")
-        defaults.set(reminderDoneG, forKey: "ReminderDone")
-        defaults.set(reminderAmountG, forKey: "ReminderAmount")
-        defaults.set(reminderLinkedBudgetG, forKey: "ReminderLinkedBudget")
-        defaults.set(reminderDateG, forKey: "ReminderDate")
-        defaults.set(reminderRepeatG, forKey: "ReminderRepeat")
-        defaults.set(reminderNotificationG, forKey: "ReminderNotification")
-        defaults.set(reminderNoteIDG, forKey: "ReminderNoteID")
-
     }
     
     func setDefaultsForMonthlyReset() {

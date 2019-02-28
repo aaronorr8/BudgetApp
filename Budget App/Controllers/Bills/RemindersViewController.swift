@@ -9,6 +9,9 @@
 import UIKit
 import UserNotifications
 
+var reminderArray = [ReminderItem]()
+let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Reminder.plist")
+
 class RemindersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navItem: UINavigationItem!
@@ -21,8 +24,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
     }
 
-   
-    
+
     override func viewDidAppear(_ animated: Bool) {
         remindersTableView.reloadData()
         
@@ -36,12 +38,11 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         setNavigationBarColor()
-        
-//        printReminders()
-        
-        
-        
+        loadItems()
+        print(dataFilePath)
     }
+
+    
     
     func setNavigationBarColor() {
         navBar.barTintColor = bgColorGradient1
@@ -55,24 +56,25 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reminderNameG.count
+
+        return reminderArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RemindersTableViewCell
+      
+        let reminderItem = ReminderItem()
         
         //DISPLAY NAME
-        if reminderRepeatG[indexPath.row] == true {
-            cell.reminderNameLabel.text = reminderNameG[indexPath.row]
-//            cell.reminderNameLabel.addTextWithImage(text: "\(reminderNameG[indexPath.row]) ", image: #imageLiteral(resourceName: "Repeat On"), imageBehindText: true, keepPreviousText: false)
+        if reminderArray[indexPath.row].reminderRepeat == true {
+            cell.reminderNameLabel.text = reminderArray[indexPath.row].name
         } else {
-//            cell.reminderNameLabel.text = reminderNameG[indexPath.row]
-            cell.reminderNameLabel.addTextWithImage(text: "\(reminderNameG[indexPath.row]) ", image: #imageLiteral(resourceName: "RepeatOff"), imageBehindText: true, keepPreviousText: false)
+            cell.reminderNameLabel.addTextWithImage(text: "\(reminderArray[indexPath.row].name)", image: #imageLiteral(resourceName: "RepeatOff"), imageBehindText: true, keepPreviousText: false)
         }
         
         
         //SET CHECKMARK
-        if reminderDoneG[indexPath.row] == false {
+        if reminderArray[indexPath.row].done == false {
             cell.checkmarkImage.image = #imageLiteral(resourceName: "CheckmarkOpen2")
             cell.checkmarkImage.image = cell.checkmarkImage.image?.withRenderingMode(.alwaysTemplate)
             cell.checkmarkImage.tintColor = bgColorGradient1
@@ -83,35 +85,33 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         //DISPLAY AMOUNT
-        cell.amountLabel.text = String(convertDoubleToCurency(amount: reminderAmountG[indexPath.row]))
-        
+        cell.amountLabel.text = String(convertDoubleToCurency(amount: reminderArray[indexPath.row].amount))
+
         //DISPLAY LINKED BUDGET
-        if reminderLinkedBudgetG[indexPath.row] == "" {
-//            cell.linkedBudget.isHidden = true
+        if reminderArray[indexPath.row].linkedBudget == "" {
             cell.linkedBudget.text = ""
         } else {
-//            cell.linkedBudget.text = "Linked to \"\(reminderLinkedBudgetG[indexPath.row])\""
-            cell.linkedBudget.addTextWithImage(text: "\(reminderLinkedBudgetG[indexPath.row])", image: #imageLiteral(resourceName: "HashtagSymbol"), imageBehindText: false, keepPreviousText: false)
+            cell.linkedBudget.addTextWithImage(text: "\(reminderArray[indexPath.row].linkedBudget)", image: #imageLiteral(resourceName: "HashtagSymbol"), imageBehindText: false, keepPreviousText: false)
+            cell.linkedBudget.addTextWithImage(text: "\(reminderArray[indexPath.row].linkedBudget)", image: #imageLiteral(resourceName: "HashtagSymbol"), imageBehindText: false, keepPreviousText: false)
         }
         
-//        //DISPLAY REMINDER DATE
-        if reminderNotificationG[indexPath.row] == true {
-            
+        //DISPLAY REMINDER DATE
+        if reminderArray[indexPath.row].notificationSetting == true {
+
             //ADD "ST", "ND", "RD", "ST" TO DATE
             var formattedDay = String()
-            if reminderDateG[indexPath.row] == 1 || reminderDateG[indexPath.row] == 21 {
+            if reminderArray[indexPath.row].date == 1 || reminderArray[indexPath.row].date == 21 {
                 formattedDay = "st"
-            } else if reminderDateG[indexPath.row] == 2 || reminderDateG[indexPath.row] == 22 {
+            } else if reminderArray[indexPath.row].date == 2 || reminderArray[indexPath.row].date == 22 {
                 formattedDay = "nd"
-            } else if reminderDateG[indexPath.row] == 3 || reminderDateG[indexPath.row] == 23 {
+            } else if reminderArray[indexPath.row].date == 3 || reminderArray[indexPath.row].date == 23 {
                 formattedDay = "rd"
             } else {
                 formattedDay = "th"
             }
-            
-            cell.dueDateLabel.text = "Reminder day: \(reminderDateG[indexPath.row])\(formattedDay)"
-            
-//            cell.dueDateLabel.addTextWithImage(text: " \(reminderDateG[indexPath.row])\(formattedDay) day of the month", image: #imageLiteral(resourceName: "bell"), imageBehindText: false, keepPreviousText: false)
+
+            cell.dueDateLabel.text = "Reminder day: \(reminderArray[indexPath.row].date)\(formattedDay)"
+ 
         } else {
             cell.dueDateLabel.addTextWithImage(text: "", image: #imageLiteral(resourceName: "NotificationOff"), imageBehindText: false, keepPreviousText: false)
         }
@@ -120,31 +120,24 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    
-    
     //SET CHECKMARK STATUS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndexG = indexPath.row
-        print(myIndexG)
-        noteReference = reminderNoteIDG[myIndexG] //used for managing notifications
-       
+        noteReference = reminderArray[myIndexG].notificationID
         
         //MARK REMINDER AS DONE
-        if reminderDoneG[indexPath.row] == false {
-            reminderDoneG[indexPath.row] = true
+        if reminderArray[indexPath.row].done == false {
+            reminderArray[indexPath.row].done = true
             
             //DEDUCT FROM LINKED BUDGET
-            if reminderLinkedBudgetG[indexPath.row] != "" {
+            if reminderArray[indexPath.row].linkedBudget != "" {
                 //OPEN DIALOG
-                let alert = UIAlertController(title: "Nice job! Do you want to record this in \"\(reminderLinkedBudgetG[indexPath.row])\"?", message: "You'll have a chance to enter the specific amount spent", preferredStyle: UIAlertControllerStyle.alert)
-                
-//                alert.addAction(UIAlertAction(title: "Yes, please", style: UIAlertActionStyle.default, handler: { _ in
-//                    print("Deduct specific amount")
-//                }))
+                let alert = UIAlertController(title: "Nice job! Do you want to record this in \"\(reminderArray[indexPath.row].linkedBudget)\"?", message: "You'll have a chance to enter the specific amount spent", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Yes, record in budget", style: UIAlertActionStyle.default, handler: { _ in
-                    myIndexG = budgetNameG.index(of: reminderLinkedBudgetG[indexPath.row])!
-                    presetAmountG = reminderAmountG[indexPath.row]
+                   //MARK: NDM
+                    myIndexG = budgetNameG.index(of: reminderArray[indexPath.row].linkedBudget)!
+                    presetAmountG = reminderArray[indexPath.row].amount
                     self.switchViewToAddSpend()
                 }))
                 
@@ -159,20 +152,20 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
             
         } else {
             //MARK REMINDER AS NOT DONE
-            reminderDoneG[indexPath.row] = false
+            reminderArray[indexPath.row].done = false
             
             //REFUND LINKED BUDGET
-            if reminderLinkedBudgetG[indexPath.row] != "" {
+            if reminderArray[indexPath.row].linkedBudget != "" {
                 //OPEN DIALOG
-                let alert = UIAlertController(title: "Do you want to adjust your \"\(reminderLinkedBudgetG[indexPath.row])\" budget?", message: "You'll have a chance to enter the specific amount.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Do you want to adjust your \"\(reminderArray[indexPath.row].linkedBudget)\" budget?", message: "You'll have a chance to enter the specific amount.", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "No thanks", style: UIAlertActionStyle.default, handler: { _ in
                     print("Cancel")
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Adjust budget", style: UIAlertActionStyle.default, handler: { _ in
-                    myIndexG = budgetNameG.index(of: reminderLinkedBudgetG[indexPath.row])!
-                    presetAmountG = reminderAmountG[indexPath.row]
+                    myIndexG = budgetNameG.index(of: reminderArray[indexPath.row].linkedBudget)!
+                    presetAmountG = reminderArray[indexPath.row].amount
                     presetRefundG = true
                     self.switchViewToAddSpend()
                 }))
@@ -184,7 +177,6 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         remindersTableView.reloadData()
-        setReminderDefaults()
         
     }
     
@@ -204,10 +196,8 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
             print("delete button tapped for index \(indexPath.row)")
             self.reminderIndex = indexPath.row
             self.deleteReminder()
-            self.setReminderDefaults()
-            self.printReminders()
+            self.saveData()
             tableView.reloadData()
-            
         }
     
         edit.backgroundColor = #colorLiteral(red: 0.7233663201, green: 0.7233663201, blue: 0.7233663201, alpha: 1)
@@ -220,20 +210,11 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     func deleteReminder() {
         print(reminderIndex)
         
-        noteReference = reminderNoteIDG[reminderIndex]
+        noteReference = reminderArray[reminderIndex].notificationID
         cancelNotifications()
         
-        reminderNameG.remove(at: reminderIndex)
-        reminderDoneG.remove(at: reminderIndex)
-        reminderAmountG.remove(at: reminderIndex)
-        reminderLinkedBudgetG.remove(at: reminderIndex)
-        reminderDateG.remove(at: reminderIndex)
-        reminderRepeatG.remove(at: reminderIndex)
-        reminderNotificationG.remove(at: reminderIndex)
-        reminderNoteIDG.remove(at: reminderIndex)
-        
-        
-        
+        reminderArray.remove(at: reminderIndex)
+
     }
     
     @objc func switchViewToAddSpend() {
@@ -256,7 +237,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         let content = UNMutableNotificationContent()
         
         //adding title, subtitle, body and badge
-        content.title = "Bill Reminder: \(reminderNameG[myIndexG])"
+        content.title = "Bill Reminder: \(reminderArray[myIndexG].name)"
         content.subtitle = ""
         content.body = ""
         content.badge = 1
@@ -266,7 +247,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         //        dateComponents.hour = 9
         //        dateComponents.minute = noteDay
         //        dateComponents.weekday = 2
-        dateComponents.second = reminderDateG[myIndexG]
+        dateComponents.second = reminderArray[myIndexG].date
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
@@ -280,11 +261,8 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         print("notification request: \(request)")
         
         //adding the notification to notification center
-        
-        if reminderDateG != [] {
-            
+        if reminderArray.count != 0 {
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
         }
     }
     
@@ -292,35 +270,31 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     func cancelNotifications() {
         let reference = noteReference
         let noteID = "notificationID\(reference)"
-        print(noteID)
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [noteID])
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     
-    func printReminders() {
-        print("reminderNameG: \(reminderNameG)")
-        print("reminderDoneG: \(reminderDoneG)")
-        print("reminderAmountG: \(reminderAmountG)")
-        print("reminderLinkedBudgetG: \(reminderLinkedBudgetG)")
-        print("reminderDateG: \(reminderDateG)")
-        print("reminderRepeatG: \(reminderRepeatG)")
-        print("reminderNotificationG: \(reminderNotificationG)")
-        print("ReminderNoteID: \(reminderNoteIDG)")
-        
+    func saveData() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(reminderArray)
+            try data.write(to: dataFilePath!)
+        } catch {
+            print("Error encoding reminder array, \(error)")
+        }
     }
     
-    //USER DEFAULTS
-    func setReminderDefaults() {
-        defaults.set(reminderNameG, forKey: "ReminderName")
-        defaults.set(reminderDoneG, forKey: "ReminderDone")
-        defaults.set(reminderAmountG, forKey: "ReminderAmount")
-        defaults.set(reminderLinkedBudgetG, forKey: "ReminderLinkedBudget")
-        defaults.set(reminderDateG, forKey: "ReminderDate")
-        defaults.set(reminderRepeatG, forKey: "ReminderRepeat")
-        defaults.set(reminderNotificationG, forKey: "ReminderNotification")
-        defaults.set(reminderNoteIDG, forKey: "ReminderNoteID")
-        
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                reminderArray = try decoder.decode([ReminderItem].self, from: data)
+            } catch {
+                print("Error decoding reminder array, \(error)")
+            }
+        }
     }
     
 
@@ -369,9 +343,4 @@ extension UILabel {
         }
     }
     
-//    func removeImage() {
-//        let text = self.text
-//        self.attributedText = nil
-//        self.text = text
-//    }
 }

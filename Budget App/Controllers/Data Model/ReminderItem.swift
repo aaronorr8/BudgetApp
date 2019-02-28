@@ -8,27 +8,14 @@
 
 import Foundation
 
-class ReminderItem {
+class ReminderItem: Codable {
     var name: String = ""
     var amount: Double = 0.0
     var date: Int = 0
     var done: Bool = false
     var linkedBudget: String = ""
     var reminderRepeat: Bool = true
-    var notification: Bool = false
-    var noteIDG: Int = 0
+    var notificationSetting: Bool = false
+    var notificationID: Int = 0
     
 }
-
-
-
-
-//var reminderNameG = [String]()
-//var reminderAmountG = [Double]()
-//var reminderDateG = [Int]()
-//var reminderDoneG = [Bool]()
-//var reminderLinkedBudgetG = [String]()
-//var reminderRepeatG = [Bool]()
-//var reminderNotificationG = [Bool]()
-//var reminderNoteIDG = [Int]()
-//var notificationIDG = 0
