@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UM-1s-xEN">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dth-ut-w83">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -45,11 +45,11 @@
             <objects>
                 <viewController storyboardIdentifier="UIViewController-YlZ-dT-u4H" title="Reminders" id="YlZ-dT-u4H" userLabel="Reminders" customClass="RemindersViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="32o-Vy-CjR" customClass="BillsTableViewCell" customModule="Budget_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTD-xj-WXU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="215"/>
                                 <items>
                                     <navigationItem title="BILL REMINDERS" id="HHF-c2-TgJ">
                                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nQc-JK-f6H">
@@ -61,7 +61,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to edit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYm-0V-dIK">
-                                <rect key="frame" x="199" y="64" width="160" height="21"/>
+                                <rect key="frame" x="199" y="259" width="195" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bfV-WZ-RZu"/>
                                 </constraints>
@@ -70,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="poI-WA-1SA">
-                                <rect key="frame" x="0.0" y="93" width="375" height="525"/>
+                                <rect key="frame" x="0.0" y="288" width="414" height="525"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="525" id="WRz-ee-rHM"/>
@@ -78,10 +78,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="95" id="4ly-R6-Age" customClass="RemindersTableViewCell" customModule="Budget_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ly-R6-Age" id="XnH-9Y-a3w">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckmarkOpen2" translatesAutoresizingMaskIntoConstraints="NO" id="3ER-k0-8Iz">
@@ -112,7 +112,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg3-Ej-wbj">
-                                                    <rect key="frame" x="262" y="23" width="98" height="25"/>
+                                                    <rect key="frame" x="296" y="23" width="98" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="YIB-td-6Qe"/>
                                                         <constraint firstAttribute="width" constant="98" id="uuO-W8-V9A"/>
@@ -122,7 +122,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linked Budget" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSE-fx-9IA">
-                                                    <rect key="frame" x="156" y="46" width="204" height="25"/>
+                                                    <rect key="frame" x="190" y="46" width="204" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="5gZ-cl-rX7"/>
                                                         <constraint firstAttribute="width" constant="204" id="kNr-au-8pY"/>
@@ -198,7 +198,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddReminderNav" title="ADD NEW BILL" id="T32-U2-0X2" customClass="AddReminderViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fcG-a4-Jkl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g, pay power bill " minimumFontSize="26" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4G5-jn-BQr">
@@ -218,7 +218,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igq-GQ-YcS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -368,7 +368,7 @@
             <objects>
                 <viewController storyboardIdentifier="EditBudget" id="V4j-wU-ZpU" customClass="AddBudgetViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbw-rL-Nh9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Budget Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ug-D9-8MF">
@@ -415,7 +415,7 @@
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezh-CZ-KIn">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.27058823529411763" green="0.15294117647058825" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
@@ -450,7 +450,7 @@
             <objects>
                 <viewController storyboardIdentifier="AddSpend" id="9XH-w1-Z33" customClass="AddSpendViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="blQ-cc-d1w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vu-mZ-ZN0">
@@ -551,7 +551,7 @@
             <objects>
                 <viewController title="Budgets" id="Vbl-PT-bPi" userLabel="Budgets" customClass="BudgetsViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3VE-aZ-Q4e" customClass="BudgetsTableViewCell" customModule="Budget_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lZp-W0-yOm">
@@ -787,11 +787,11 @@
             <objects>
                 <viewController storyboardIdentifier="UIViewController-wxF-K6-Wb6" title="Settings" id="wxF-K6-Wb6" userLabel="Settings" customClass="SettingsViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M60-EI-g3u">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mW-3y-zt3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="SETTINGS" id="tUl-Mc-2Q7"/>
@@ -931,7 +931,7 @@
             <objects>
                 <navigationController storyboardIdentifier="AddSpendNav" id="agd-zb-21c" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3g1-jo-VAq">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -947,18 +947,18 @@
             <objects>
                 <viewController storyboardIdentifier="BudgetHistory" id="daq-p7-PWs" customClass="HistoryViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iZ1-AA-Saz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oNw-W0-ZIM">
-                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="746"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="102" id="vzk-1o-Shg" customClass="HistoryTableViewCell" customModule="Budget_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="102"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vzk-1o-Shg" id="Lug-Kc-PbG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyN-FI-8S4">
@@ -1021,14 +1021,14 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n79-1P-aiA">
-                                <rect key="frame" x="296" y="-28" width="39" height="30"/>
+                                <rect key="frame" x="331" y="-4" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
                                 <connections>
                                     <action selector="closeButton:" destination="daq-p7-PWs" eventType="touchUpInside" id="Zmr-mw-O1F"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe row to edit" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI7-ng-eaU">
-                                <rect key="frame" x="190" y="63" width="178" height="21"/>
+                                <rect key="frame" x="190" y="87" width="217" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Sq4-gJ-esa"/>
                                 </constraints>
@@ -1037,7 +1037,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-R0-ji9">
-                                <rect key="frame" x="0.0" y="19" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="43" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="HhQ-4E-bLe">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9OM-Ph-yWW">
@@ -1075,6 +1075,126 @@
             </objects>
             <point key="canvasLocation" x="5464.8000000000002" y="2440.9295352323838"/>
         </scene>
+        <!--Sign In Up View Controller-->
+        <scene sceneID="bZB-oi-7m4">
+            <objects>
+                <viewController id="dth-ut-w83" customClass="SignInUpViewController" customModule="Budget_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctX-Qg-RfE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login Background" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-6P-XAB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to BUDGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STn-sH-GZO">
+                                <rect key="frame" x="86" y="181" width="242" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="No1-Ro-aXH">
+                                <rect key="frame" x="31" y="313" width="352" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="0.29799871575342468" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1UX-dz-amq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="nvp-7B-Wuo"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="1JD-N4-WDD">
+                                <rect key="frame" x="31" y="397" width="352" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="0.29799871579999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="052-zT-7Bo"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" secureTextEntry="YES" textContentType="password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cub-D6-c5p">
+                                <rect key="frame" x="175" y="481" width="64" height="64"/>
+                                <state key="normal" image="Arrow Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKN-R8-hAG">
+                                <rect key="frame" x="73" y="565" width="268" height="30"/>
+                                <state key="normal" title="SignUp Instead">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9wQ-6P-XAB" firstAttribute="top" secondItem="ctX-Qg-RfE" secondAttribute="top" id="609-75-8us"/>
+                            <constraint firstItem="1JD-N4-WDD" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" constant="31" id="CQ9-sC-xx9"/>
+                            <constraint firstItem="jkt-KJ-dhc" firstAttribute="trailing" secondItem="STn-sH-GZO" secondAttribute="trailing" constant="86" id="CXz-jk-S0A"/>
+                            <constraint firstItem="1JD-N4-WDD" firstAttribute="top" secondItem="No1-Ro-aXH" secondAttribute="bottom" constant="34" id="Cgp-n0-Rll"/>
+                            <constraint firstItem="jkt-KJ-dhc" firstAttribute="trailing" secondItem="1JD-N4-WDD" secondAttribute="trailing" constant="31" id="Fvr-TM-bCa"/>
+                            <constraint firstItem="1JD-N4-WDD" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" constant="31" id="G5V-Kz-PrV"/>
+                            <constraint firstItem="wKN-R8-hAG" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" constant="73" id="GAo-wZ-uGw"/>
+                            <constraint firstItem="jkt-KJ-dhc" firstAttribute="trailing" secondItem="1JD-N4-WDD" secondAttribute="trailing" constant="31" id="GQW-zz-ZN3"/>
+                            <constraint firstItem="9wQ-6P-XAB" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" id="Kgt-X1-sid"/>
+                            <constraint firstItem="wKN-R8-hAG" firstAttribute="centerX" secondItem="cub-D6-c5p" secondAttribute="centerX" id="S3p-1x-g8e"/>
+                            <constraint firstItem="jkt-KJ-dhc" firstAttribute="trailing" secondItem="No1-Ro-aXH" secondAttribute="trailing" constant="31" id="Utj-VA-jpe"/>
+                            <constraint firstItem="cub-D6-c5p" firstAttribute="centerX" secondItem="1JD-N4-WDD" secondAttribute="centerX" id="XUC-jo-fEC"/>
+                            <constraint firstAttribute="bottom" secondItem="9wQ-6P-XAB" secondAttribute="bottom" id="cxZ-9a-cky"/>
+                            <constraint firstItem="STn-sH-GZO" firstAttribute="top" secondItem="jkt-KJ-dhc" secondAttribute="top" constant="137" id="er3-LN-63d"/>
+                            <constraint firstItem="1JD-N4-WDD" firstAttribute="top" secondItem="No1-Ro-aXH" secondAttribute="bottom" constant="34" id="iCW-Ul-gdq"/>
+                            <constraint firstItem="No1-Ro-aXH" firstAttribute="top" secondItem="STn-sH-GZO" secondAttribute="bottom" constant="100" id="ifK-5t-zgI"/>
+                            <constraint firstItem="wKN-R8-hAG" firstAttribute="top" secondItem="cub-D6-c5p" secondAttribute="bottom" constant="20" id="ivD-cM-YP6"/>
+                            <constraint firstItem="No1-Ro-aXH" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" constant="31" id="jxp-of-jEM"/>
+                            <constraint firstItem="STn-sH-GZO" firstAttribute="leading" secondItem="jkt-KJ-dhc" secondAttribute="leading" constant="86" id="ojM-hS-1jf"/>
+                            <constraint firstItem="cub-D6-c5p" firstAttribute="top" secondItem="1JD-N4-WDD" secondAttribute="bottom" constant="34" id="u43-9C-OH1"/>
+                            <constraint firstItem="9wQ-6P-XAB" firstAttribute="trailing" secondItem="jkt-KJ-dhc" secondAttribute="trailing" id="vsa-Sp-GgU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jkt-KJ-dhc"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="No1-Ro-aXH" id="FSb-LC-1cW"/>
+                        <outlet property="passwordField" destination="1JD-N4-WDD" id="xfD-lP-HCV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHD-Ke-huZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688.4057971014495" y="1680.8035714285713"/>
+        </scene>
         <!--Budgets-->
         <scene sceneID="dFf-dz-Tp9">
             <objects>
@@ -1084,7 +1204,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ipk-eW-ykr">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1099,12 +1219,14 @@
     </scenes>
     <resources>
         <image name="AddButton" width="120" height="120"/>
+        <image name="Arrow Button" width="64" height="64"/>
         <image name="BillsOutline" width="25" height="25"/>
         <image name="BillsSolid" width="25" height="25"/>
         <image name="BudgetOutline" width="25" height="25"/>
         <image name="BudgetSolid" width="25" height="25"/>
         <image name="CheckmarkOpen2" width="51" height="50"/>
-        <image name="Menu" width="32" height="32"/>
+        <image name="Login Background" width="375" height="667"/>
+        <image name="Menu" width="51.200000762939453" height="51.200000762939453"/>
         <image name="SettingsOutline" width="25" height="25"/>
         <image name="SettingsSolid" width="25" height="25"/>
     </resources>
