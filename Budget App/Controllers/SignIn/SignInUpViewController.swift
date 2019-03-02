@@ -20,21 +20,61 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
         passwordField.setLeftPaddingPoints(10)
         passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        
+        //Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+    }
+    
+    deinit {
+        //Stop listening for keyboard hide/show events
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    
+    @IBAction func signInButtonTapped(_ sender: Any) {
+        hideKeyboard()
     }
     
     
     @objc func keyboardWillChange(notification: Notification) {
         print("Keyboard will show: \(notification.name.rawValue)")
+        
+        guard let keybaordRect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if notification.name == Notification.Name.UIKeyboardWillShow || notification.name
+            == Notification.Name.UIKeyboardWillChangeFrame {
+            view.frame.origin.y = -keybaordRect.height / 2
+        } else {
+            view.frame.origin.y = 0
+        }
+        
+        
     }
+    
+    func hideKeyboard() {
+        passwordField.resignFirstResponder()
+    }
+    
+    
     
 
 

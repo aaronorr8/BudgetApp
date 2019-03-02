@@ -1152,6 +1152,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cub-D6-c5p">
                                 <rect key="frame" x="175" y="481" width="64" height="64"/>
                                 <state key="normal" image="Arrow Button"/>
+                                <connections>
+                                    <action selector="signInButtonTapped:" destination="dth-ut-w83" eventType="touchUpInside" id="XWP-oe-ISy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKN-R8-hAG">
                                 <rect key="frame" x="73" y="565" width="268" height="30"/>
