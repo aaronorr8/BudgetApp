@@ -12,6 +12,10 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButtonOutlet: UIButton!
+    @IBOutlet weak var signUpInsteadOutlet: UIButton!
+    
+    
     
     override func viewDidLayoutSubviews() {
         
@@ -60,9 +64,23 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        //Get space between bottom button and bottom of screen
+        let spaceAfterLastButton = view.frame.height - signUpInsteadOutlet.frame.size.height/2 - signUpInsteadOutlet.frame.origin.y
+        print("space between bottom and button: \(spaceAfterLastButton)")
+        print("keyboard height: \(keybaordRect.height)")
+        
+        let distance = spaceAfterLastButton -  keybaordRect.height
+        print("distance: \(distance)")
+        
         if notification.name == Notification.Name.UIKeyboardWillShow || notification.name
             == Notification.Name.UIKeyboardWillChangeFrame {
-            view.frame.origin.y = -keybaordRect.height / 2
+//            view.frame.origin.y = -keybaordRect.height
+            if distance < 0 {
+                view.frame.origin.y = distance
+            } else {
+                view.frame.origin.y = 0
+            }
+           
         } else {
             view.frame.origin.y = 0
         }

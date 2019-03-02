@@ -1102,7 +1102,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartQuotesType="no" textContentType="email"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="15"/>
@@ -1192,6 +1192,8 @@
                     <connections>
                         <outlet property="emailField" destination="No1-Ro-aXH" id="FSb-LC-1cW"/>
                         <outlet property="passwordField" destination="1JD-N4-WDD" id="xfD-lP-HCV"/>
+                        <outlet property="signInButtonOutlet" destination="cub-D6-c5p" id="0BJ-3q-FJO"/>
+                        <outlet property="signUpInsteadOutlet" destination="wKN-R8-hAG" id="nJC-2y-U7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHD-Ke-huZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
