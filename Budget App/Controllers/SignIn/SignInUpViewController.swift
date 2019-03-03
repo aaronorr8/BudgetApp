@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInUpViewController: UIViewController, UITextFieldDelegate {
     
@@ -14,20 +15,23 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButtonOutlet: UIButton!
     @IBOutlet weak var signUpInsteadOutlet: UIButton!
+    @IBOutlet weak var logInSignInLabel: UILabel!
     
+    let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     
     override func viewDidLayoutSubviews() {
         
         emailField.setLeftPaddingPoints(10)
-        emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         passwordField.setLeftPaddingPoints(10)
-        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
         //Listen for keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
         
         
     }
@@ -51,10 +55,31 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
-    
+    //MARK: SignIn Button Tapped
     @IBAction func signInButtonTapped(_ sender: Any) {
-        hideKeyboard()
+        
+        let email = emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        startSpinner()
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+            if error != nil {
+                self.stopSpinner()
+                self.loginAlert()
+                print(error)
+
+            } else {
+                self.stopSpinner()
+                self.performSegue(withIdentifier: "goToMain", sender: self)
+                print("Login successful!!")
+            }
+        }
+
+        self.view.endEditing(true)
     }
+    
+    //MARK: Sign Up/In Button
+   
     
     
     @objc func keyboardWillChange(notification: Notification) {
@@ -92,6 +117,28 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
         passwordField.resignFirstResponder()
     }
     
+    
+    func loginAlert() {
+        let alert = UIAlertController(title: "Oops! Wrong email or password, try again.", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+
+    
+    func startSpinner() {
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopSpinner() {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
     
     
 

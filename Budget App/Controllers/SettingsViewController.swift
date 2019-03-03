@@ -49,7 +49,6 @@ class SettingsViewController: UIViewController {
     }
     
     //MARK: SignIn/Out
-    
     @IBAction func signOutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
