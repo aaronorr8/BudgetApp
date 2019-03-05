@@ -20,6 +20,13 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
     let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     
+    override func viewWillLayoutSubviews() {
+        let currentUser = Auth.auth().currentUser
+        if currentUser != nil {
+            self.performSegue(withIdentifier: "goToMain", sender: self)
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         
         emailField.setLeftPaddingPoints(10)

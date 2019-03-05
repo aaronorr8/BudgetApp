@@ -10,17 +10,17 @@ import UIKit
 import Firebase
 
     //COLORS
-    let colorTrackH = #colorLiteral(red: 0.9294117647, green: 0.9058823529, blue: 0.9647058824, alpha: 1)
+    let colorTrackH = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
     let colorRedH = #colorLiteral(red: 0.9568627451, green: 0.262745098, blue: 0.2117647059, alpha: 1)
-    let colorGreenH = #colorLiteral(red: 0.2980392157, green: 0.6862745098, blue: 0.3137254902, alpha: 1)
+    let colorGreenH = #colorLiteral(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
     
-    let colorTrackC = #colorLiteral(red: 0.9294117647, green: 0.9058823529, blue: 0.9647058824, alpha: 1)
+    let colorTrackC = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
     let colorRedC = #colorLiteral(red: 0.9568627451, green: 0.262745098, blue: 0.2117647059, alpha: 1)
-    let colorGreenC = #colorLiteral(red: 0.2980392157, green: 0.6862745098, blue: 0.3137254902, alpha: 1)
+    let colorGreenC = #colorLiteral(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
     
     let bgColorSolid = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    let bgColorGradient1 = #colorLiteral(red: 0.2705882353, green: 0.1529411765, blue: 0.6274509804, alpha: 1)
-    let bgColorGradient2 = #colorLiteral(red: 0.4156862745, green: 0.1058823529, blue: 0.6039215686, alpha: 1)
+    let bgColorGradient1 = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    let bgColorGradient2 = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     let cellBackground = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
