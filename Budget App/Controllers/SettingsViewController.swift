@@ -27,9 +27,9 @@ class SettingsViewController: UIViewController {
    
     override func viewWillAppear(_ animated: Bool) {
         
-        UIApplication.shared.statusBarStyle = .lightContent
-        UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
-        setNavigationBarColor()
+//        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
+//        setNavigationBarColor()
         monthlyResetSwitch.isOn = monthlyResetNotificationSetting
     }
     
@@ -158,15 +158,15 @@ class SettingsViewController: UIViewController {
     
     
     
-    func setNavigationBarColor() {
-        navBar.barTintColor = bgColorGradient1
-        navBar.isTranslucent = false
-        navBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
-        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
-        barView.backgroundColor = bgColorGradient1
-        view.addSubview(barView)
-    }
+//    func setNavigationBarColor() {
+//        navBar.barTintColor = bgColorGradient1
+//        navBar.isTranslucent = false
+//        navBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
+//        let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
+//        barView.backgroundColor = bgColorGradient1
+//        view.addSubview(barView)
+//    }
     
     
     @IBAction func notifyMeButton(_ sender: Any) {

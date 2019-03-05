@@ -77,16 +77,16 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         fireStoreListener()
         
         //MARK: HIDE NAVIGATION BAR
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
+//        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
         
        
         
         //MARK: SET BACKGROUND COLOR
-        createGradientLayer()
+//        createGradientLayer()
         //self.view.backgroundColor = bgColorSolid
         
         //self.tabBarController?.navigationItem.title = "Profile Settings"
@@ -98,13 +98,13 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: self.visibleTitleColor]
             self.navigationController?.navigationBar.tintColor = self.visibleTitleColor
             self.navigationController?.navigationBar.shadowImage = UIImage(named: "shadowImage")
-            UIApplication.shared.statusBarStyle = .default
+//            UIApplication.shared.statusBarStyle = .default
         } else {
-            UIApplication.shared.statusBarStyle = .lightContent
+//            UIApplication.shared.statusBarStyle = .lightContent
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
             self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-            UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
+//            UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
         }
         
     }
@@ -121,14 +121,14 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
    
-    func createGradientLayer() {
-        gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [bgColorGradient1.cgColor, bgColorGradient2.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+//    func createGradientLayer() {
+//        gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = self.view.bounds
+//        gradientLayer.colors = [bgColorGradient1.cgColor, bgColorGradient2.cgColor]
+//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+//        self.view.layer.insertSublayer(gradientLayer, at: 0)
+//    }
     
     
     
@@ -148,8 +148,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         
             UIView.animate(withDuration: 0.5, animations: {
                 self.navigationController?.navigationBar.backgroundColor = self.hiddenBgColor
-                UIApplication.shared.statusBarStyle = .lightContent
-                UIApplication.shared.statusBarView?.backgroundColor = self.hiddenBgColor
+//                UIApplication.shared.statusBarStyle = .lightContent
+//                UIApplication.shared.statusBarView?.backgroundColor = self.hiddenBgColor
                 self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: self.hiddenTitleColor]
                 self.navigationController?.navigationBar.tintColor = self.hiddenTitleColor
                 self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -160,8 +160,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.navigationController?.navigationBar.backgroundColor = self.visibleBgColor
-                UIApplication.shared.statusBarStyle = .default
-                UIApplication.shared.statusBarView?.backgroundColor = self.visibleBgColor
+//                UIApplication.shared.statusBarStyle = .default
+//                UIApplication.shared.statusBarView?.backgroundColor = self.visibleBgColor
                 self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: self.visibleTitleColor]
                 self.navigationController?.navigationBar.tintColor = self.visibleTitleColor
                 self.navigationController?.navigationBar.shadowImage = UIImage(named: "shadowImage")
@@ -234,9 +234,9 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
-    func addNewBudget(sender: UIButton) {
-        print("It Works!")
-    }
+//    func addNewBudget(sender: UIButton) {
+//        print("It Works!")
+//    }
     
     
     //MARK: HIDE ADD BUDGET BUTTON IF EMPTY
@@ -328,8 +328,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //MARK: REARRANGE BUDGETS
      func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        
-        
+
         return true
     }
     

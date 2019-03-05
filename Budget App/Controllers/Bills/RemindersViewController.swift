@@ -20,8 +20,8 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     var reminderIndex = 0
 
     override func viewWillAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-        UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
+//        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarView?.backgroundColor = bgColorGradient1
     }
 
 
@@ -37,7 +37,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setNavigationBarColor()
+//        setNavigationBarColor()
         loadItems()
         print(dataFilePath)
     }
