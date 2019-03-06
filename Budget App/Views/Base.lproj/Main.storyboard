@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dth-ut-w83">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3UM-1s-xEN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -655,10 +655,9 @@
                                                     <rect key="frame" x="91" y="46" width="232" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="ITS-rV-hZ4">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PlusButton" translatesAutoresizingMaskIntoConstraints="NO" id="ITS-rV-hZ4">
                                                     <rect key="frame" x="26" y="37" width="57" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -757,10 +756,9 @@
                                             <rect key="frame" x="46" y="20" width="204" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AddButton" translatesAutoresizingMaskIntoConstraints="NO" id="BfM-gi-mRC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PlusButton" translatesAutoresizingMaskIntoConstraints="NO" id="BfM-gi-mRC">
                                             <rect key="frame" x="8" y="16" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -780,6 +778,7 @@
                     <navigationItem key="navigationItem" id="zbo-2v-QKK"/>
                     <connections>
                         <outlet property="collectionView" destination="lZp-W0-yOm" id="vHX-hN-w6k"/>
+                        <segue destination="dth-ut-w83" kind="presentation" identifier="goToLogin" id="vBL-EC-Eju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O72-jK-KfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1230,7 +1229,6 @@
                         <outlet property="passwordField" destination="1JD-N4-WDD" id="xfD-lP-HCV"/>
                         <outlet property="signInButtonOutlet" destination="cub-D6-c5p" id="0BJ-3q-FJO"/>
                         <outlet property="signUpInsteadOutlet" destination="wKN-R8-hAG" id="nJC-2y-U7a"/>
-                        <segue destination="3UM-1s-xEN" kind="show" identifier="goToMain" id="r4K-Np-4Ka"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHD-Ke-huZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1261,7 +1259,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddButton" width="120" height="120"/>
         <image name="BillsOutline" width="25" height="25"/>
         <image name="BillsSolid" width="25" height="25"/>
         <image name="Budge" width="124" height="29"/>
@@ -1271,6 +1268,7 @@
         <image name="Menu" width="51.200000762939453" height="51.200000762939453"/>
         <image name="NextButton" width="52" height="52"/>
         <image name="Pig" width="148" height="80"/>
+        <image name="PlusButton" width="60" height="60"/>
         <image name="SettingsOutline" width="25" height="25"/>
         <image name="SettingsSolid" width="25" height="25"/>
     </resources>

@@ -20,12 +20,6 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
     let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     
-    override func viewWillLayoutSubviews() {
-        let currentUser = Auth.auth().currentUser
-        if currentUser != nil {
-            self.performSegue(withIdentifier: "goToMain", sender: self)
-        }
-    }
     
     override func viewDidLayoutSubviews() {
         
@@ -77,7 +71,7 @@ class SignInUpViewController: UIViewController, UITextFieldDelegate {
 
             } else {
                 self.stopSpinner()
-                self.performSegue(withIdentifier: "goToMain", sender: self)
+                self.dismiss(animated: true, completion: nil)
                 print("Login successful!!")
             }
         }

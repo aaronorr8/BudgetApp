@@ -20,21 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        //UINavigationBar.appearance().backgroundColor = #colorLiteral(red: 0.1865581274, green: 0.2438463569, blue: 0.3193703592, alpha: 1)
-        /*let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.red,
-            NSAttributedStringKey.font: UIFont(name: "Georgia-Bold", size: 24)!
-        ]
-        
-        UINavigationBar.appearance().titleTextAttributes = attrs*/
         
         UITabBar.appearance().tintColor = #colorLiteral(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
         
-//        UIApplication.shared.statusBarStyle = .lightContent
-        
-        
-    
-        
+ 
         return true
     }
 
