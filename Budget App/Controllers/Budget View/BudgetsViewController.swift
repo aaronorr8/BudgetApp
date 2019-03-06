@@ -56,7 +56,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         db = Firestore.firestore()
         
         
-        //Bypass login screen if user is logged in
+        //Show login screen if user isn't logged in
         let currentUser = Auth.auth().currentUser
         if currentUser == nil {
             self.performSegue(withIdentifier: "goToLogin", sender: self)
@@ -80,7 +80,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        fireStoreListener()
         
         
         //MARK: HIDE NAVIGATION BAR
@@ -117,7 +117,7 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        fireStoreListener()
+        
 
 //        createUserDefaults()
 //        collectionView.reloadData()
