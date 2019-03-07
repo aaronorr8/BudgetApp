@@ -191,6 +191,13 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.width - 10, height: 110.0)
+    }
+    
+  
+    
     //MARK: COLLECTION HEADER/FOOTER
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //1
@@ -580,3 +587,5 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
     
 
 }
+    
+ 

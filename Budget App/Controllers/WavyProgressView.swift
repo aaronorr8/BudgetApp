@@ -42,19 +42,20 @@ class WavyProgressView: UIView {
         }
     }
     
+    
+    
    
     fileprivate func createWavyPath() {
         
         let wavyLine = UIBezierPath()
        
-        let x1:CGFloat = bounds.width / 7
-        let x2:CGFloat = bounds.width / 7
-        let x3:CGFloat = bounds.width / 7
+        let x1:CGFloat = (bounds.width / 7)
+        let x2:CGFloat = (bounds.width / 7)
+        let x3:CGFloat = (bounds.width / 7)
         let y1:CGFloat = 0
-        let y2:CGFloat = 20
-        
-        let n1:CGFloat = 30  //30
-        let n2:CGFloat = 20  //20
+        let y2:CGFloat = bounds.height
+        let n1:CGFloat = x1 * 0.55
+        let n2:CGFloat = x1 * 0.51
         
         wavyLine.move(to: CGPoint(x: 0, y: y2))
         wavyLine.addCurve(to: CGPoint(x: x1 * 1, y: y1), controlPoint1: CGPoint(x: (x2 * 1) - n1, y: y2), controlPoint2: CGPoint(x: (x3 * 1) - n2, y: y1))
@@ -64,7 +65,6 @@ class WavyProgressView: UIView {
         wavyLine.addCurve(to: CGPoint(x: x1 * 5, y: y1), controlPoint1: CGPoint(x: (x2 * 5) - n1, y: y2), controlPoint2: CGPoint(x: (x3 * 5) - n2, y: y1))
         wavyLine.addCurve(to: CGPoint(x: x1 * 6, y: y2), controlPoint1: CGPoint(x: (x2 * 6) - n1, y: y1), controlPoint2: CGPoint(x: (x3 * 6) - n2, y: y2))
         wavyLine.addCurve(to: CGPoint(x: x1 * 7, y: y1), controlPoint1: CGPoint(x: (x2 * 7) - n1, y: y2), controlPoint2: CGPoint(x: (x3 * 7) - n2, y: y1))
-        
         
         trackLayer.path = wavyLine.cgPath
         trackLayer.fillColor = UIColor.clear.cgColor
