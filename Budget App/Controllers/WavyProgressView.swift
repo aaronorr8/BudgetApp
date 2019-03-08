@@ -16,13 +16,12 @@ class WavyProgressView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createWavyPath()
-        print("hello1")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createWavyPath()
-        print(self.frame.width)
+        
         
     }
     
@@ -48,16 +47,36 @@ class WavyProgressView: UIView {
     fileprivate func createWavyPath() {
         
         let wavyLine = UIBezierPath()
+        
+        let screenSize = UIScreen.main.bounds.width
+        print("screenSize: \(screenSize)")
+        
+        let start = CGFloat(10)
+        let end = UIScreen.main.bounds.width - 10
+        
        
-        let x1:CGFloat = (bounds.width / 7)
-        let x2:CGFloat = (bounds.width / 7)
-        let x3:CGFloat = (bounds.width / 7)
+        
+        
+//        wavyLine.move(to: .init(x: start, y: bounds.height / 2))
+//        wavyLine.addLine(to: .init(x: end, y: bounds.height / 2))
+        
+//        let x1:CGFloat = (bounds.width / 7)
+//        let x2:CGFloat = (bounds.width / 7)
+//        let x3:CGFloat = (bounds.width / 7)
+//        let y1:CGFloat = 0
+//        let y2:CGFloat = bounds.height
+//        let n1:CGFloat = x1 * 0.55
+//        let n2:CGFloat = x1 * 0.51
+        
+        let x1:CGFloat = (end / 7)
+        let x2:CGFloat = (end / 7)
+        let x3:CGFloat = (end / 7)
         let y1:CGFloat = 0
         let y2:CGFloat = bounds.height
         let n1:CGFloat = x1 * 0.55
         let n2:CGFloat = x1 * 0.51
-        
-        wavyLine.move(to: CGPoint(x: 0, y: y2))
+
+        wavyLine.move(to: CGPoint(x: start, y: y2))
         wavyLine.addCurve(to: CGPoint(x: x1 * 1, y: y1), controlPoint1: CGPoint(x: (x2 * 1) - n1, y: y2), controlPoint2: CGPoint(x: (x3 * 1) - n2, y: y1))
         wavyLine.addCurve(to: CGPoint(x: x1 * 2, y: y2), controlPoint1: CGPoint(x: (x2 * 2) - n1, y: y1), controlPoint2: CGPoint(x: (x3 * 2) - n2, y: y2))
         wavyLine.addCurve(to: CGPoint(x: x1 * 3, y: y1), controlPoint1: CGPoint(x: (x2 * 3) - n1, y: y2), controlPoint2: CGPoint(x: (x3 * 3) - n2, y: y1))
@@ -69,8 +88,9 @@ class WavyProgressView: UIView {
         trackLayer.path = wavyLine.cgPath
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.strokeColor = trackColor.cgColor
-        trackLayer.lineWidth = 5.0
+        trackLayer.lineWidth = 2.0
         trackLayer.strokeEnd = 1.0
+        trackLayer.lineCap = kCALineCapRound
         layer.addSublayer(trackLayer)
         
         progressLayer.path = wavyLine.cgPath
@@ -78,6 +98,7 @@ class WavyProgressView: UIView {
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.lineWidth = 5.0
         progressLayer.strokeEnd = 0.0
+        progressLayer.lineCap = kCALineCapRound
         layer.addSublayer(progressLayer)
         
     }
@@ -90,8 +111,8 @@ class WavyProgressView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         progressLayer.strokeEnd = CGFloat(value)
         progressLayer.add(animation, forKey: "animateprogress")
-        progressLayer.lineCap = kCALineCapRound
-        trackLayer.lineCap = kCALineCapRound
+        
+        
     }
 
 }

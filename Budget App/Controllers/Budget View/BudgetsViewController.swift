@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
     //COLORS
-    let colorTrackH = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+    let colorTrackH = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
     let colorRedH = #colorLiteral(red: 0.9568627451, green: 0.262745098, blue: 0.2117647059, alpha: 1)
     let colorGreenH = #colorLiteral(red: 0.2549019608, green: 0.4588235294, blue: 0.01960784314, alpha: 1)
     
@@ -228,8 +228,8 @@ class BudgetsViewController: UIViewController, UICollectionViewDataSource, UICol
             
            //MARK: HEADER PROGRESS BAR LABELS
             
-            var headerSpentTotal = String(convertDoubleToCurency(amount: totalSpentG))
-            var headerTotalAvailable = String(convertDoubleToCurency(amount: totalBudgetsAllocation))
+            let headerSpentTotal = String(convertDoubleToCurency(amount: totalSpentG))
+            let headerTotalAvailable = String(convertDoubleToCurency(amount: totalBudgetsAllocation))
             
             headerView.progressSpentLabel.text = "\(headerSpentTotal) spent"
             headerView.progressTotalLabel.text = "\(headerTotalAvailable) total budgets"

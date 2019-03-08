@@ -627,13 +627,13 @@
                                                     <rect key="frame" x="265" y="33" width="85" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkX-II-feG">
-                                                            <rect key="frame" x="8" y="32" width="69" height="21"/>
+                                                            <rect key="frame" x="8" y="31.5" width="69" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="18"/>
                                                             <color key="textColor" red="0.2343659401" green="0.32935160400000002" blue="0.40815091129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-DC-dzz">
-                                                            <rect key="frame" x="20.5" y="53" width="44" height="12"/>
+                                                            <rect key="frame" x="20.5" y="54" width="44" height="12"/>
                                                             <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="10"/>
                                                             <color key="textColor" red="0.2343659401" green="0.32935160400000002" blue="0.40815091129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -651,16 +651,16 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4B-YF-0GE">
-                                                    <rect key="frame" x="7" y="37.5" width="256" height="56"/>
+                                                    <rect key="frame" x="7" y="37" width="256" height="57.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zfy-1f-WAc">
-                                                            <rect key="frame" x="0.0" y="6" width="256" height="26"/>
+                                                            <rect key="frame" x="0.0" y="6" width="256" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="Signika-Regular" family="Signika" pointSize="22"/>
                                                             <color key="textColor" red="0.25490196078431371" green="0.45882352941176469" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HM-pC-LY9">
-                                                            <rect key="frame" x="0.0" y="33" width="256" height="17"/>
+                                                            <rect key="frame" x="0.0" y="34.5" width="256" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="MFs-Cd-vTL"/>
                                                             </constraints>
@@ -739,27 +739,11 @@
                                             <fontDescription key="fontDescription" name="Signika-Light" family="Signika" pointSize="12"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCC-1r-cu7">
-                                            <rect key="frame" x="360" y="130" width="15" height="27"/>
-                                            <color key="backgroundColor" red="0.20784313730000001" green="0.82745098039999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="27" id="OCT-3c-2Da"/>
-                                                <constraint firstAttribute="width" constant="15" id="qUF-pR-6wS"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOv-16-K9b">
-                                            <rect key="frame" x="0.0" y="114" width="15" height="27"/>
-                                            <color key="backgroundColor" red="0.20784313730000001" green="0.82745098039999998" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="27" id="gUn-fW-3Kv"/>
-                                                <constraint firstAttribute="width" constant="15" id="rR9-aX-0Gr"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qyG-ko-S6K" customClass="WavyProgressView" customModule="Budget_App" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="114" width="344" height="27"/>
+                                            <rect key="frame" x="0.0" y="114" width="375" height="27"/>
                                             <color key="backgroundColor" red="0.98823529409999999" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="27" id="h9e-bR-ZjJ"/>
+                                                <constraint firstAttribute="height" constant="27" id="Fao-td-Abc"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-Kg-VT0">
@@ -787,17 +771,13 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="BBO-hC-Gbf" firstAttribute="top" secondItem="QdC-Kg-VT0" secondAttribute="bottom" constant="3" id="3ud-dS-PI8"/>
-                                        <constraint firstItem="mCC-1r-cu7" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="40" id="8xR-6Y-PjO"/>
-                                        <constraint firstItem="mCC-1r-cu7" firstAttribute="leading" secondItem="qyG-ko-S6K" secondAttribute="trailing" constant="1" id="CUz-6L-ccS"/>
-                                        <constraint firstItem="EOv-16-K9b" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="24" id="IhY-NS-hJi"/>
-                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="24" id="J2A-Z7-C3A"/>
-                                        <constraint firstAttribute="trailing" secondItem="mCC-1r-cu7" secondAttribute="trailing" id="Tgy-9O-GDg"/>
+                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="24" id="KUP-Tp-xca"/>
                                         <constraint firstItem="QdC-Kg-VT0" firstAttribute="top" secondItem="coS-zK-yLq" secondAttribute="topMargin" constant="1" id="UdM-e9-fVC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QdC-Kg-VT0" secondAttribute="trailing" constant="16" id="c9L-zP-GHt"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="BBO-hC-Gbf" secondAttribute="trailing" constant="107" id="hPb-mL-v6b"/>
                                         <constraint firstItem="BBO-hC-Gbf" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leadingMargin" constant="107" id="hld-0H-XkS"/>
-                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="leading" secondItem="EOv-16-K9b" secondAttribute="trailing" id="i7k-ND-XLP"/>
-                                        <constraint firstItem="EOv-16-K9b" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leading" id="jXH-wu-NJe"/>
+                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leading" id="ijb-ZF-Swk"/>
+                                        <constraint firstAttribute="trailing" secondItem="qyG-ko-S6K" secondAttribute="trailing" id="pCU-ew-DiU"/>
                                         <constraint firstItem="QdC-Kg-VT0" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leadingMargin" constant="16" id="pK9-jI-2mg"/>
                                     </constraints>
                                     <connections>
@@ -1358,7 +1338,7 @@
         <image name="BudgetOutline" width="25" height="25"/>
         <image name="BudgetSolid" width="25" height="25"/>
         <image name="CheckmarkOpen2" width="51" height="50"/>
-        <image name="Menu" width="32" height="32"/>
+        <image name="Menu" width="51.200000762939453" height="51.200000762939453"/>
         <image name="NextButton" width="52" height="52"/>
         <image name="Pig" width="148" height="80"/>
         <image name="PlusButton" width="60" height="60"/>
