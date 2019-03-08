@@ -723,25 +723,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGR-my-atZ">
-                                            <rect key="frame" x="16" y="142" width="30" height="15"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGR-my-atZ">
+                                            <rect key="frame" x="16" y="142" width="148" height="15"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="DWr-Wa-DBx"/>
+                                                <constraint firstAttribute="width" constant="148" id="Poh-JX-bfR"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Signika-Light" family="Signika" pointSize="12"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hK-01-DYv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hK-01-DYv">
                                             <rect key="frame" x="204" y="141" width="155" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="ZVB-YC-0Tx"/>
+                                                <constraint firstAttribute="width" constant="155" id="dud-c7-AaD"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Signika-Light" family="Signika" pointSize="12"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </label>
                                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qyG-ko-S6K" customClass="WavyProgressView" customModule="Budget_App" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="114" width="375" height="27"/>
-                                            <color key="backgroundColor" red="0.98823529409999999" green="0.84313725490000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="0.0" y="106" width="375" height="27"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="Fao-td-Abc"/>
                                             </constraints>
@@ -771,12 +777,16 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="BBO-hC-Gbf" firstAttribute="top" secondItem="QdC-Kg-VT0" secondAttribute="bottom" constant="3" id="3ud-dS-PI8"/>
-                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="24" id="KUP-Tp-xca"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2hK-01-DYv" secondAttribute="trailing" constant="8" id="Jlj-3I-4HP"/>
+                                        <constraint firstItem="qyG-ko-S6K" firstAttribute="top" secondItem="BBO-hC-Gbf" secondAttribute="bottom" constant="16" id="KUP-Tp-xca"/>
+                                        <constraint firstItem="2hK-01-DYv" firstAttribute="top" secondItem="qyG-ko-S6K" secondAttribute="bottom" constant="8" id="L8q-fg-EVh"/>
                                         <constraint firstItem="QdC-Kg-VT0" firstAttribute="top" secondItem="coS-zK-yLq" secondAttribute="topMargin" constant="1" id="UdM-e9-fVC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QdC-Kg-VT0" secondAttribute="trailing" constant="16" id="c9L-zP-GHt"/>
+                                        <constraint firstItem="MGR-my-atZ" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leadingMargin" constant="8" id="eOV-kG-FeS"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="BBO-hC-Gbf" secondAttribute="trailing" constant="107" id="hPb-mL-v6b"/>
                                         <constraint firstItem="BBO-hC-Gbf" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leadingMargin" constant="107" id="hld-0H-XkS"/>
                                         <constraint firstItem="qyG-ko-S6K" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leading" id="ijb-ZF-Swk"/>
+                                        <constraint firstItem="MGR-my-atZ" firstAttribute="top" secondItem="qyG-ko-S6K" secondAttribute="bottom" constant="9" id="nbe-0M-QT6"/>
                                         <constraint firstAttribute="trailing" secondItem="qyG-ko-S6K" secondAttribute="trailing" id="pCU-ew-DiU"/>
                                         <constraint firstItem="QdC-Kg-VT0" firstAttribute="leading" secondItem="coS-zK-yLq" secondAttribute="leadingMargin" constant="16" id="pK9-jI-2mg"/>
                                     </constraints>
